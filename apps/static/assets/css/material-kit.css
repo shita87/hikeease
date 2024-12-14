@@ -5175,6 +5175,17 @@ textarea.form-control-lg {
     opacity: 1;
     transform: none; } }
 
+.top-right {
+  position: absolute;
+  top: 120px;
+  right: 10px;
+}
+.top-left-explore-mount {
+  position: absolute;
+  top: 120px;
+  left: 10px;
+}
+
 .spinner-grow {
   display: inline-block;
   width: 2rem;
@@ -6337,7 +6348,7 @@ textarea.form-control-lg {
   margin-bottom: 16rem !important; }
 
 .my-auto {
-  margin-top: 140px !important;
+  margin-top: auto !important;
   margin-bottom: auto !important; }
 
 .mt-0 {
