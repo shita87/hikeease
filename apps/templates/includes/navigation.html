@@ -1,0 +1,170 @@
+  <!-- Navbar -->
+  <div class="container position-sticky z-index-sticky top-0">
+    <div class="row">
+      <div class="col-12">
+        <nav class="navbar navbar-expand-lg  blur border-radius-xl mt-4 top-0 z-index-3 shadow position-absolute my-3 py-2 start-0 end-0 mx-4 sticky-top navbar-light">
+          <div class="container-fluid px-0">
+            <a class="navbar-brand font-weight-bolder ms-sm-3" href="/" rel="tooltip" title="Designed and Coded by Creative Tim" data-placement="bottom">
+              <img src="/static/assets/img/logo.png" width="350" height="40" alt="">
+            </a>
+            <div class="collapse navbar-collapse pt-3 pb-2 py-lg-0 w-100" id="navigation">
+              <ul class="navbar-nav navbar-nav-hover ms-auto ">
+                {% if current_user.is_authenticated %}
+                <li class="nav-item dropdown dropdown-hover mx-2">
+                  <a class="nav-link ps-2 d-flex cursor-pointer align-items-center font-weight-bold" style="font-size: 18px;" id="dropdownMenuPages" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="material-icons opacity-6 me-2" style="font-size: 25px;">support_agent</i>
+                    Know Us More
+                    <img src="/static/assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-auto ms-md-2">
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-animation ms-n3 dropdown-md p-3 border-radius-xl mt-0 mt-lg-3" aria-labelledby="dropdownMenuPages">
+                    <div class="d-none d-lg-block">
+                      <a href="/about-us.html" class="dropdown-item border-radius-md">
+                        <p class="d-inline text-sm z-index-1 font-weight-bold" title="About Us">About Us</p>
+                      </a>
+                      </a>
+                      <a href="/contact_us.html" class="dropdown-item border-radius-md">
+                        <p class="d-inline text-sm z-index-1 font-weight-bold" title="Contact Us">Contact Us</p>
+                      </a>
+                    </div>
+                  </div>
+                </li>
+                <li class="nav-item dropdown dropdown-hover mx-2">
+                  <a class="nav-link ps-2 d-flex cursor-pointer align-items-center font-weight-bold" style="font-size: 18px;" id="dropdownMenuPages" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="material-icons opacity-6 me-2" style="font-size: 25px;">landscape</i>
+                    Explore Mountain
+                    <img src="/static/assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-auto ms-md-2">
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-animation ms-n3 dropdown-md p-3 border-radius-xl mt-0 mt-lg-3" aria-labelledby="dropdownMenuPages">
+                    <div class="d-none d-lg-block">
+                      <a href="/gede.html" class="dropdown-item border-radius-md">
+                        <p class="d-inline text-sm z-index-1 font-weight-bold" title="Gede">Gede</p>
+                      </a>
+                      <a href="/ciremai.html" class="dropdown-item border-radius-md">
+                        <p class="d-inline text-sm z-index-1 font-weight-bold" title="Ciremai">Ciremai</p>
+                      </a>
+                      <a href="/kawah_ratu.html" class="dropdown-item border-radius-md">
+                        <p class="d-inline text-sm z-index-1 font-weight-bold" title="Kawah Ratu">Kawah Ratu</p>
+                      </a>
+                      <a href="/slamet.html" class="dropdown-item border-radius-md">
+                        <p class="d-inline text-sm z-index-1 font-weight-bold" title="Slamet">Slamet</p>
+                      </a>
+                      <a href="/arjuno.html" class="dropdown-item border-radius-md">
+                        <p class="d-inline text-sm z-index-1 font-weight-bold" title="Arjuno">Arjuno</p>
+                      </a>
+                      <a href="/merbabu.html" class="dropdown-item border-radius-md">
+                        <p class="d-inline text-sm z-index-1 font-weight-bold" title="Merbabu">Merbabu</p>
+                      </a>
+                      <a href="/salak.html" class="dropdown-item border-radius-md">
+                        <p class="d-inline text-sm z-index-1 font-weight-bold" title="Salak">Salak</p>
+                      </a>
+                      <a href="/rinjani.html" class="dropdown-item border-radius-md">
+                        <p class="d-inline text-sm z-index-1 font-weight-bold" title="Rinjani">Rinjani</p>
+                      </a>
+                    </div>
+                  </div>
+                </li>
+                <li class="nav-item dropdown dropdown-hover mx-2">
+                  <a class="nav-link ps-2 d-flex cursor-pointer align-items-center font-weight-bold" style="font-size: 18px;" id="dropdownMenuPages" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="material-icons opacity-6 me-2" style="font-size: 25px;">subscriptions</i>
+                    Our Services
+                    <img src="/static/assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-auto ms-md-2">
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-animation ms-n3 dropdown-md p-3 border-radius-xl mt-0 mt-lg-3" aria-labelledby="dropdownMenuPages">
+                    <div class="d-none d-lg-block">
+                      <a href="/packages.html" class="dropdown-item border-radius-md">
+                        <p class="d-inline text-sm z-index-1 font-weight-bold" title="Packages">Packages</p>
+                      </a>
+                      <a href="/login" class="dropdown-item border-radius-md">
+                        <p class="d-inline text-sm z-index-1 font-weight-bold" title="Bookings">Bookings</p>
+                      </a>
+                      <a class="nav-link nav-link-icon me-2" href="{{ url_for('authentication_blueprint.logout') }}">
+                        <i class="fa fa-sign-out me-2"></i>
+                        <p class="d-inline text-sm z-index-1 font-weight-bold" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Sign OUT">Logout</p>
+                      </a>
+                    </div>
+                  </div>
+                </li>
+                {% else %}
+                <li class="nav-item dropdown dropdown-hover mx-2">
+                  <a class="nav-link ps-2 d-flex cursor-pointer align-items-center font-weight-bold" style="font-size: 18px;" id="dropdownMenuPages" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="material-icons opacity-6 me-2" style="font-size: 25px;">support_agent</i>
+                    Know Us More
+                    <img src="/static/assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-auto ms-md-2">
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-animation ms-n3 dropdown-md p-3 border-radius-xl mt-0 mt-lg-3" aria-labelledby="dropdownMenuPages">
+                    <div class="d-none d-lg-block">
+                      <a href="/about-us.html" class="dropdown-item border-radius-md">
+                        <p class="d-inline text-sm z-index-1 font-weight-bold" title="About Us">About Us</p>
+                      </a>
+                      </a>
+                      <a href="/author.html" class="dropdown-item border-radius-md">
+                        <p class="d-inline text-sm z-index-1 font-weight-bold" title="Contact Us">Contact Us</p>
+                      </a>
+                    </div>
+                  </div>
+                </li>
+                <li class="nav-item dropdown dropdown-hover mx-2">
+                  <a class="nav-link ps-2 d-flex cursor-pointer align-items-center font-weight-bold" style="font-size: 18px;" id="dropdownMenuPages" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="material-icons opacity-6 me-2" style="font-size: 25px;">landscape</i>
+                    Explore Mountain
+                    <img src="/static/assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-auto ms-md-2">
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-animation ms-n3 dropdown-md p-3 border-radius-xl mt-0 mt-lg-3" aria-labelledby="dropdownMenuPages">
+                    <div class="d-none d-lg-block">
+                      <a href="/gede.html" class="dropdown-item border-radius-md">
+                        <p class="d-inline text-sm z-index-1 font-weight-bold" title="Gede">Gede</p>
+                      </a>
+                      <a href="/ciremai.html" class="dropdown-item border-radius-md">
+                        <p class="d-inline text-sm z-index-1 font-weight-bold" title="Ciremai">Ciremai</p>
+                      </a>
+                      <a href="/kawah_ratu.html" class="dropdown-item border-radius-md">
+                        <p class="d-inline text-sm z-index-1 font-weight-bold" title="Kawah Ratu">Kawah Ratu</p>
+                      </a>
+                      <a href="/slamet.html" class="dropdown-item border-radius-md">
+                        <p class="d-inline text-sm z-index-1 font-weight-bold" title="Slamet">Slamet</p>
+                      </a>
+                      <a href="/arjuno.html" class="dropdown-item border-radius-md">
+                        <p class="d-inline text-sm z-index-1 font-weight-bold" title="Arjuno">Arjuno</p>
+                      </a>
+                      <a href="/merbabu.html" class="dropdown-item border-radius-md">
+                        <p class="d-inline text-sm z-index-1 font-weight-bold" title="Merbabu">Merbabu</p>
+                      </a>
+                      <a href="/salak.html" class="dropdown-item border-radius-md">
+                        <p class="d-inline text-sm z-index-1 font-weight-bold" title="Salak">Salak</p>
+                      </a>
+                      <a href="/rinjani.html" class="dropdown-item border-radius-md">
+                        <p class="d-inline text-sm z-index-1 font-weight-bold" title="Rinjani">Rinjani</p>
+                      </a>
+                    </div>
+                  </div>
+                </li>
+                <li class="nav-item dropdown dropdown-hover mx-2">
+                  <a class="nav-link ps-2 d-flex cursor-pointer align-items-center font-weight-bold" style="font-size: 18px;" id="dropdownMenuPages" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="material-icons opacity-6 me-2" style="font-size: 25px;">subscriptions</i>
+                    Our Services
+                    <img src="/static/assets/img/down-arrow-dark.svg" alt="down-arrow" class="arrow ms-auto ms-md-2">
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-animation ms-n3 dropdown-md p-3 border-radius-xl mt-0 mt-lg-3" aria-labelledby="dropdownMenuPages">
+                    <div class="d-none d-lg-block">
+                      <a href="/packages.html" class="dropdown-item border-radius-md">
+                        <p class="d-inline text-sm z-index-1 font-weight-bold" title="Packages">Packages</p>
+                      </a>
+                      <a href="/login" class="dropdown-item border-radius-md">
+                        <p class="d-inline text-sm z-index-1 font-weight-bold" title="Sign In">Sign In</p>
+                      </a>
+                      <a href="/register" class="dropdown-item border-radius-md">
+                        <p class="d-inline text-sm z-index-1 font-weight-bold" title="Sign Up">Sign Up</p>
+                      </a>
+                    </div>
+                  </div>
+                </li>
+                {% endif %}
+
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <!-- End Navbar -->
+      </div>
+    </div>
+  </div>
