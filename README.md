@@ -1,4 +1,4 @@
-# Project Name
+# HikeaEase App
 
 The Hikeaease apps is a web base interface to help user explore the mountain in indonesia
 
