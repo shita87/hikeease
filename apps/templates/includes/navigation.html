@@ -77,12 +77,14 @@
                       <a href="/login" class="dropdown-item border-radius-md">
                         <p class="d-inline text-sm z-index-1 font-weight-bold" title="Bookings">Bookings</p>
                       </a>
-                      <a class="nav-link nav-link-icon me-2" href="{{ url_for('authentication_blueprint.logout') }}">
-                        <i class="fa fa-sign-out me-2"></i>
-                        <p class="d-inline text-sm z-index-1 font-weight-bold" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Sign OUT">Logout</p>
-                      </a>
                     </div>
                   </div>
+                </li>
+                <li class="nav-item dropdown dropdown-hover mx-2">
+                  <a class="nav-link ps-2 d-flex cursor-pointer align-items-center font-weight-bold" style="font-size: 18px;" href="{{ url_for('authentication_blueprint.logout') }}">
+                    <i class="fa fa-sign-out me-2" style="font-size: 25px;">subscriptions</i>
+                    Log Out
+                  </a>
                 </li>
                 {% else %}
                 <li class="nav-item dropdown dropdown-hover mx-2">
