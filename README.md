@@ -97,4 +97,4 @@ For questions or suggestions, please reach out:
 
 - **Name:** Roshita Setiorini
 - **Email:** shita.dicha@gmail.com
-- **GitHub:** [Your GitHub Profile](https://github.com/shita87)
+- **GitHub:** [Shita87](https://github.com/shita87)
