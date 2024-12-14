@@ -11,44 +11,44 @@
               <ul class="navbar-nav navbar-nav-hover ms-auto ">
                 {% if current_user.is_authenticated %}
                 <li class="nav-item mx-2">
-                  <a href="/" class="nav-link ps-2 d-flex cursor-pointer align-items-center font-weight-bold" style="font-size: 18px;" id="dropdownMenuPages" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="material-icons opacity-6 me-2" style="font-size: 25px;">home</i>Home
+                  <a href="http://localhost:5000 class="nav-link ps-2 d-flex cursor-pointer align-items-center font-weight-bold" style="font-size: 18px;" id="dropdownMenuPages" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="material-icons opacity-6 me-2" style="font-size: 25px;">home</i>HOME
                   </a>
                 </li>
                 <li class="nav-item mx-2">
-                  <a href="/" class="nav-link ps-2 d-flex cursor-pointer align-items-center font-weight-bold" style="font-size: 18px;" >
-                    <i class="material-icons opacity-6 me-2" style="font-size: 25px;">photo_library</i>Galery
+                  <a href="http://localhost:5000" class="nav-link ps-2 d-flex cursor-pointer align-items-center font-weight-bold" style="font-size: 18px;" >
+                    <i class="material-icons opacity-6 me-2" style="font-size: 25px;">photo_library</i>GALERY
                   </a>
                 </li>
                 <li class="nav-item mx-2">
                   <a href="/contact_us.html" class="nav-link ps-2 d-flex cursor-pointer align-items-center font-weight-bold" style="font-size: 18px;" >
-                    <i class="material-icons opacity-6 me-2" style="font-size: 25px;">contacts</i>Contact Us
+                    <i class="material-icons opacity-6 me-2" style="font-size: 25px;">contacts</i>CONTACT US
                   </a>
                 </li>
                 <li class="nav-item mx-2">
                   <a href="{{ url_for('authentication_blueprint.logout') }}" class="nav-link ps-2 d-flex cursor-pointer align-items-center font-weight-bold" style="font-size: 18px;" >
-                    <i class="material-icons opacity-6 me-2" style="font-size: 25px;">logout</i>Logout
+                    <i class="material-icons opacity-6 me-2" style="font-size: 25px;">logout</i>LOGOUT
                   </a>
                 </li>
                 {% else %}
                 <li class="nav-item mx-2">
-                  <a href="/" class="nav-link ps-2 d-flex cursor-pointer align-items-center font-weight-bold" style="font-size: 18px;" id="dropdownMenuPages" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="material-icons opacity-6 me-2" style="font-size: 25px;">home</i>Home
+                  <a href="/" class="nav-link ps-2 d-flex cursor-pointer align-items-center font-weight-bold" style="font-size: 18px;" >
+                    <i class="material-icons opacity-6 me-2" style="font-size: 25px;">home</i>HOME
                   </a>
                 </li>
                 <li class="nav-item mx-2">
                   <a href="/" class="nav-link ps-2 d-flex cursor-pointer align-items-center font-weight-bold" style="font-size: 18px;" >
-                    <i class="material-icons opacity-6 me-2" style="font-size: 25px;">photo_library</i>Galery
+                    <i class="material-icons opacity-6 me-2" style="font-size: 25px;">photo_library</i>GALERY
                   </a>
                 </li>
                 <li class="nav-item mx-2">
                   <a href="/contact_us.html" class="nav-link ps-2 d-flex cursor-pointer align-items-center font-weight-bold" style="font-size: 18px;" >
-                    <i class="material-icons opacity-6 me-2" style="font-size: 25px;">contacts</i>Contact Us
+                    <i class="material-icons opacity-6 me-2" style="font-size: 25px;">contacts</i>CONTACT US
                   </a>
                 </li>
                 <li class="nav-item mx-2">
                   <a href="{{ url_for('authentication_blueprint.login') }}" class="nav-link ps-2 d-flex cursor-pointer align-items-center font-weight-bold" style="font-size: 18px;" >
-                    <i class="material-icons opacity-6 me-2" style="font-size: 25px;">login</i>Login
+                    <i class="material-icons opacity-6 me-2" style="font-size: 25px;">login</i>LOGIN
                   </a>
                 </li>
                 {% endif %}
