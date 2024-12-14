@@ -13,9 +13,9 @@ The Hikeaease apps is a web base interface to help user explore the mountain in 
 
 ## Features
 
-- Feature 1: Book The .
-- Feature 2: Another feature worth highlighting.
-- Feature 3: Additional functionality.
+- Feature 1: Register To the web base apps.
+- Feature 2: Booking to mountain exploration.
+- Feature 3: Check Booking Status.
 
 ---
 
