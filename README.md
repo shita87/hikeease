@@ -8,7 +8,6 @@ The Hikeaease apps is a web base interface to help user explore the mountain in 
 4. [Configuration](#configuration)
 5. [Contributing](#contributing)
 6. [Contact](#contact)
-
 ---
 
 ## Features
@@ -88,9 +87,7 @@ Contributions are welcome! Please follow these steps:
    git push origin feature-branch
    ```
 5. Submit a pull request.
-
 ---
-
 ## Contact
 
 For questions or suggestions, please reach out:
