@@ -10,20 +10,198 @@
 {% block content %}
 
   {% include 'includes/navigation.html' %} 
-  
-  <div class="page-header align-items-start min-vh-100" style="background-image: url('/static/assets/img/salak.png');" loading="lazy">
-    <span class="mask bg-gradient-dark opacity-6"></span>
-    <div class="container my-auto">
-      <div class="row top-right">
-        <div class="col-lg-4">
-            <h1>Explore Mountain</h1>
-        </div>
+  <header class="bg-gradient-dark  opacity-7">
+    <div class="page-header min-vh-45" style="background-image: url('/static/assets/img/salak_header.jpg');">
+    </div>
+    <div class="row">
+      <div class="col-lg-4 top-right">
+          <h1 style="color: rgb(2, 2, 2);">Explore Mountains</h1>
       </div>
     </div>
-
-    {% include 'includes/footer-auth.html' %} 
-
+  </header>
+  <div class="card card-body shadow-xl mx-3 mx-md-4 mt-n6">
+    <section class="py-7  position-relative">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <h1 style="color: rgb(2, 2, 2);">MT Salak</h1>
+          </div>
+          <br/>
+          <br/>
+          <div class="col-lg-6">
+              <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
+                  <div class="carousel-inner">
+                      <div class="carousel-item active" >
+                          <img src="/static/assets/img/salak.png" class="d-block w-100" alt="Slide 1">
+                      </div>
+                      <div class="carousel-item">
+                          <img src="/static/assets/img/ciremai.jpg" class="d-block w-100" alt="Slide 2">
+                      </div>
+                      <div class="carousel-item">
+                          <img src="/static/assets/img/gede.jpg" class="d-block w-100" alt="Slide 3">
+                      </div>
+                      <div class="carousel-item">
+                          <img src="/static/assets/img/kawah_ratu.jpg" class="d-block w-100" alt="Slide 4">
+                      </div>
+                      <div class="carousel-item" 
+                            data-title="Slide 5 Title" 
+                            data-caption="Description for Slide 5">
+                          <img src="/static/assets/img/merbabu.jpg" class="d-block w-100" alt="Slide 5">
+                      </div>
+                      <div class="carousel-item" 
+                            data-title="Slide 6 Title" 
+                            data-caption="Description for Slide 6">
+                          <img src="/static/assets/img/rinjani.png" class="d-block w-100" alt="Slide 6">
+                      </div>
+                      <div class="carousel-item" 
+                            data-title="Slide 7 Title" 
+                            data-caption="Description for Slide 7">
+                          <img src="/static/assets/img/salak.png" class="d-block w-100" alt="Slide 7">
+                      </div>
+                      <div class="carousel-item" 
+                            data-title="Slide 8 Title" 
+                            data-caption="Description for Slide 8">
+                          <img src="/static/assets/img/slamet.jpg" class="d-block w-100" alt="Slide 8">
+                      </div>
+                  </div>
+                  <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="false"></span>
+                      <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                  </button>
+              </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="row">
+              <div class="col-md-6">
+                <div>
+                  <p class="mb-0">
+                    <i class="fas fa-mountain text-primary me-2"></i> Elevation: 2112 Meters
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div>
+                  <p class="mb-0">
+                    <i class="fa-solid fa-compass text-primary me-2"></i> 6°43' LS dan 106°44' BT
+                  </p>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="border rounded mb-3" style="height: 290px; overflow: hidden;">
+              <iframe 
+                src="https://maps.google.com/maps?q=Mount%20Salak&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+                width="100%" 
+                height="100%" 
+                frameborder="0" 
+                style="border:0;" 
+                allowfullscreen>
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="pb-5 position-relative bg-gradient-dark mx-n3">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 text-start mb-5 mt-5">
+            <h3 class="text-white z-index-1 position-relative">The Executive Team</h3>
+            <p class="text-white opacity-8 mb-0">There’s nothing I really wanted to do in life that I wasn’t able to get good at. That’s my skill.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 col-12">
+            <div class="card card-profile mt-4">
+              <div class="row">
+                <div class="col-lg-4 col-md-6 col-12 mt-n5">
+                  <a href="javascript:;">
+                    <div class="p-3 pe-md-0">
+                      <img class="w-100 border-radius-md shadow-lg" src="/static/assets/img/team-5.jpg" alt="image">
+                    </div>
+                  </a>
+                </div>
+                <div class="col-lg-8 col-md-6 col-12 my-auto">
+                  <div class="card-body ps-lg-0">
+                    <h5 class="mb-0">Emma Roberts</h5>
+                    <h6 class="text-info">UI Designer</h6>
+                    <p class="mb-0">Artist is a term applied to a person who engages in an activity deemed to be an art.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-12">
+            <div class="card card-profile mt-lg-4 mt-5">
+              <div class="row">
+                <div class="col-lg-4 col-md-6 col-12 mt-n5">
+                  <a href="javascript:;">
+                    <div class="p-3 pe-md-0">
+                      <img class="w-100 border-radius-md shadow-lg" src="/static/assets/img/bruce-mars.jpg" alt="image">
+                    </div>
+                  </a>
+                </div>
+                <div class="col-lg-8 col-md-6 col-12 my-auto">
+                  <div class="card-body ps-lg-0">
+                    <h5 class="mb-0">William Pearce</h5>
+                    <h6 class="text-info">Boss</h6>
+                    <p class="mb-0">Artist is a term applied to a person who engages in an activity deemed to be an art.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-lg-6 col-12">
+            <div class="card card-profile mt-4 z-index-2">
+              <div class="row">
+                <div class="col-lg-4 col-md-6 col-12 mt-n5">
+                  <a href="javascript:;">
+                    <div class="p-3 pe-md-0">
+                      <img class="w-100 border-radius-md shadow-lg" src="/static/assets/img/ivana-squares.jpg" alt="image">
+                    </div>
+                  </a>
+                </div>
+                <div class="col-lg-8 col-md-6 col-12 my-auto">
+                  <div class="card-body ps-lg-0">
+                    <h5 class="mb-0">Ivana Flow</h5>
+                    <h6 class="text-info">Athlete</h6>
+                    <p class="mb-0">Artist is a term applied to a person who engages in an activity deemed to be an art.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-12">
+            <div class="card card-profile mt-lg-4 mt-5 z-index-2">
+              <div class="row">
+                <div class="col-lg-4 col-md-6 col-12 mt-n5">
+                  <a href="javascript:;">
+                    <div class="p-3 pe-md-0">
+                      <img class="w-100 border-radius-md shadow-lg" src="/static/assets/img/ivana-square.jpg" alt="image">
+                    </div>
+                  </a>
+                </div>
+                <div class="col-lg-8 col-md-6 col-12 my-auto">
+                  <div class="card-body ps-lg-0">
+                    <h5 class="mb-0">Marquez Garcia</h5>
+                    <h6 class="text-info">JS Developer</h6>
+                    <p class="mb-0">Artist is a term applied to a person who engages in an activity deemed to be an art.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
+  {% include 'includes/footer-components.html' %}
 
 {% endblock content %}
 

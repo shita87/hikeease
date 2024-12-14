@@ -5177,13 +5177,14 @@ textarea.form-control-lg {
 
 .top-right {
   position: absolute;
-  top: 120px;
-  right: 10px;
+  top: 140px;
+  right: 75px;
+  text-align: left;
 }
-.top-left-explore-mount {
+.top-left {
   position: absolute;
   top: 120px;
-  left: 10px;
+  left: 45px;
 }
 
 .spinner-grow {
