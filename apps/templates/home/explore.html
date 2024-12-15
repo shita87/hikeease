@@ -1,41 +1,231 @@
-{% extends "layouts/base-fullscreen.html" %}
-
-{% block title %} Page 403 {% endblock %} 
-
-{% block body_class %} sign-in-basic {% endblock %}
-
-<!-- Specific Page CSS goes HERE  -->
-{% block stylesheets %}{% endblock stylesheets %}
+{% extends "layouts/base-explorer.html" %}
 
 {% block content %}
-  {% include 'includes/navigation.html' %} 
-  <div class="page-header align-items-start min-vh-100" style="background-image: url('/static/assets/img/frame.png');" loading="lazy">
-    <span class="mask bg-gradient-dark opacity-6"></span>
-    <div class="container my-auto">
-        <div class="row">
-        </div>
-    </div>
-    {% include 'includes/footer-auth.html' %} 
+
+  <!-- carousel -->
+  {% include 'includes/navigation.html' %}
+
+  <div class="carousel">
+      <!-- list item -->
+      <div class="list">
+          <div class="item">
+              <img src="/static/assets/img/arjuno.jpg">
+              <div class="content">
+                  <div class="title">MT</div>
+                  <div class="topic">ARJUNO</div>
+                  <div class="des">
+                      <!-- lorem 50 -->
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi ducimus aut doloribus non numquam. Explicabo, laboriosam nisi reprehenderit tempora at laborum natus unde. Ut, exercitationem eum aperiam illo illum laudantium?
+                  </div>
+                  <div class="buttons">
+                      <button>SEE MORE</button>
+                      <button>SUBSCRIBE</button>
+                  </div>
+              </div>
+          </div>
+          <div class="item">
+              <img src="/static/assets/img/ciremai.jpg">
+              <div class="content">
+                  <div class="title">MT</div>
+                  <div class="topic">CIREMAI</div>
+                  <div class="des">
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi ducimus aut doloribus non numquam. Explicabo, laboriosam nisi reprehenderit tempora at laborum natus unde. Ut, exercitationem eum aperiam illo illum laudantium?
+                  </div>
+                  <div class="buttons">
+                      <button>SEE MORE</button>
+                      <button>SUBSCRIBE</button>
+                  </div>
+              </div>
+          </div>
+          <div class="item">
+              <img src="/static/assets/img/gede.jpg">
+              <div class="content">
+                  <div class="title">MT</div>
+                  <div class="topic">GEDE</div>
+                  <div class="des">
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi ducimus aut doloribus non numquam. Explicabo, laboriosam nisi reprehenderit tempora at laborum natus unde. Ut, exercitationem eum aperiam illo illum laudantium?
+                  </div>
+                  <div class="buttons">
+                      <button>SEE MORE</button>
+                      <button>SUBSCRIBE</button>
+                  </div>
+              </div>
+          </div>
+          <div class="item">
+              <img src="/static/assets/img/kawah_ratu.jpg">
+              <div class="content">
+                  <div class="title">MT</div>
+                  <div class="topic">KAWAH RATU</div>
+                  <div class="des">
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi ducimus aut doloribus non numquam. Explicabo, laboriosam nisi reprehenderit tempora at laborum natus unde. Ut, exercitationem eum aperiam illo illum laudantium?
+                  </div>
+                  <div class="buttons">
+                      <button>SEE MORE</button>
+                      <button>SUBSCRIBE</button>
+                  </div>
+              </div>
+          </div>
+          <div class="item">
+              <img src="/static/assets/img/merbabu.jpg">
+              <div class="content">
+                  <div class="author">LUNDEV</div>
+                  <div class="title">DESIGN SLIDER</div>
+                  <div class="topic">ANIMAL</div>
+                  <div class="des">
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi ducimus aut doloribus non numquam. Explicabo, laboriosam nisi reprehenderit tempora at laborum natus unde. Ut, exercitationem eum aperiam illo illum laudantium?
+                  </div>
+                  <div class="buttons">
+                      <button>SEE MORE</button>
+                      <button>SUBSCRIBE</button>
+                  </div>
+              </div>
+          </div>
+          <div class="item">
+              <img src="/static/assets/img/rinjani.png">
+              <div class="content">
+                  <div class="title">MT</div>
+                  <div class="topic">RINJANI</div>
+                  <div class="des">
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi ducimus aut doloribus non numquam. Explicabo, laboriosam nisi reprehenderit tempora at laborum natus unde. Ut, exercitationem eum aperiam illo illum laudantium?
+                  </div>
+                  <div class="buttons">
+                      <button>SEE MORE</button>
+                      <button>SUBSCRIBE</button>
+                  </div>
+              </div>
+          </div>
+          <div class="item">
+              <img src="/static/assets/img/salak.jpg">
+              <div class="content">
+                  <div class="title">MT</div>
+                  <div class="topic">SALAK</div>
+                  <div class="des">
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi ducimus aut doloribus non numquam. Explicabo, laboriosam nisi reprehenderit tempora at laborum natus unde. Ut, exercitationem eum aperiam illo illum laudantium?
+                  </div>
+                  <div class="buttons">
+                      <button>SEE MORE</button>
+                      <button>SUBSCRIBE</button>
+                  </div>
+              </div>
+          </div>
+          <div class="item">
+              <img src="/static/assets/img/slamet.jpg">
+              <div class="content">
+                  <div class="title">MT</div>
+                  <div class="topic">SLAMET</div>
+                  <div class="des">
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut sequi, rem magnam nesciunt minima placeat, itaque eum neque officiis unde, eaque optio ratione aliquid assumenda facere ab et quasi ducimus aut doloribus non numquam. Explicabo, laboriosam nisi reprehenderit tempora at laborum natus unde. Ut, exercitationem eum aperiam illo illum laudantium?
+                  </div>
+                  <div class="buttons">
+                      <button>SEE MORE</button>
+                      <button>SUBSCRIBE</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- list thumnail -->
+      <div class="thumbnail">
+          <div class="item">
+              <img src="/static/assets/img/arjuno.jpg">
+              <div class="content">
+                  <div class="title">
+                      MT Arjuno
+                  </div>
+                  <div class="description">
+                      Description
+                  </div>
+              </div>
+          </div>
+          <div class="item">
+              <img src="/static/assets/img/ciremai.jpg">
+              <div class="content">
+                  <div class="title">
+                      MT Ceremai
+                  </div>
+                  <div class="description">
+                      Description
+                  </div>
+              </div>
+          </div>
+          <div class="item">
+              <img src="/static/assets/img/gede.jpg">
+              <div class="content">
+                  <div class="title">
+                      MT Gede
+                  </div>
+                  <div class="description">
+                      Description
+                  </div>
+              </div>
+          </div>
+          <div class="item">
+              <img src="/static/assets/img/kawah_ratu.jpg">
+              <div class="content">
+                  <div class="title">
+                      Name Slider
+                  </div>
+                  <div class="description">
+                      Description
+                  </div>
+              </div>
+          </div>
+          <div class="item">
+              <img src="/static/assets/img/merbabu.jpg">
+              <div class="content">
+                  <div class="title">
+                      MT Merbabu
+                  </div>
+                  <div class="description">
+                      Description
+                  </div>
+              </div>
+          </div>
+          <div class="item">
+              <img src="/static/assets/img/rinjani.png">
+              <div class="content">
+                  <div class="title">
+                      MT Rinjani
+                  </div>
+                  <div class="description">
+                      Description
+                  </div>
+              </div>
+          </div>
+          <div class="item">
+              <img src="/static/assets/img/salak.jpg">
+              <div class="content">
+                  <div class="title">
+                      MT Salak
+                  </div>
+                  <div class="description">
+                      Description
+                  </div>
+              </div>
+          </div>
+          <div class="item">
+              <img src="/static/assets/img/slamet.jpg">
+              <div class="content">
+                  <div class="title">
+                      MT SLamet
+                  </div>
+                  <div class="description">
+                      Description
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- next prev -->
+
+      <div class="arrows">
+          <button id="prev"><</button>
+          <p></p>
+          <p></p>
+          <p></p>
+          <button id="next">></button>
+      </div>
+      <!-- time running -->
+      <div class="time"></div>
   </div>
-  <script>
-      // Update the caption dynamically when the carousel changes
-      document.addEventListener('DOMContentLoaded', function () {
-          const carousel = document.querySelector('#mainCarousel');
-          const titleElement = document.querySelector('#caption-title');
-          const descriptionElement = document.querySelector('#caption-description');
-
-          carousel.addEventListener('slide.bs.carousel', function (event) {
-              // Get the new active slide
-              const activeSlide = event.relatedTarget;
-              const newTitle = activeSlide.getAttribute('data-title');
-              const newCaption = activeSlide.getAttribute('data-caption');
-              
-              // Update the right column with the new caption
-              titleElement.textContent = newTitle;
-              descriptionElement.innerHTML = newCaption;
-          });
-      });
-  </script>
-
+  <script src="/static/assets/js/explorer.js"></script>
+  {% include 'includes/footer-auth.html' %} 
 {% endblock content %}
-{% block javascripts %}{% endblock javascripts %}

@@ -3384,6 +3384,7 @@ textarea.form-control-lg {
   display: block; }
 
 .navbar {
+  background-color: transparent !important;
   position: relative;
   display: flex;
   flex-wrap: wrap;
@@ -17436,5 +17437,3 @@ pre[class*="language-"] {
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
   .ps {
     overflow: auto !important; } }
-
-/*# sourceMappingURL=material-kit.css.map */

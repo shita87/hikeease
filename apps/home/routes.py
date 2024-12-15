@@ -8,6 +8,10 @@ from jinja2 import TemplateNotFound
 def index():
     return render_template('home/index.html', segment='index')
 
+@blueprint.route('/contact_us')
+def contact_us():
+    return render_template('home/contact_us.html', segment='index')
+
 @blueprint.route('/<template>')
 def route_template(template):
     try:
