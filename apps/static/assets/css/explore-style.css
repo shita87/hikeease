@@ -116,7 +116,7 @@ header a{
     right: 10px;
 }
 .thumbnail .item .content .title{
-    font-weight: 500;
+    font-weight: bold;
 }
 .thumbnail .item .content .description{
     font-weight: 300;
