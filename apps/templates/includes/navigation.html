@@ -11,12 +11,12 @@
               <ul class="navbar-nav navbar-nav-hover ms-auto ">
                 {% if current_user.is_authenticated %}
                 <li class="nav-item mx-2">
-                  <a href="http://localhost:5000" class="nav-link ps-2 d-flex cursor-pointer align-items-center font-weight-bold" style="font-size: 18px;" id="dropdownMenuPages" data-bs-toggle="dropdown" aria-expanded="false">
+                  <a href="/" class="nav-link ps-2 d-flex cursor-pointer align-items-center font-weight-bold" style="font-size: 18px;" id="dropdownMenuPages" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="material-icons opacity-6 me-2" style="font-size: 25px;">home</i>HOME
                   </a>
                 </li>
                 <li class="nav-item mx-2">
-                  <a href="http://localhost:5000" class="nav-link ps-2 d-flex cursor-pointer align-items-center font-weight-bold" style="font-size: 18px;" >
+                  <a href="/" class="nav-link ps-2 d-flex cursor-pointer align-items-center font-weight-bold" style="font-size: 18px;" >
                     <i class="material-icons opacity-6 me-2" style="font-size: 25px;">photo_library</i>GALERY
                   </a>
                 </li>
@@ -25,10 +25,29 @@
                     <i class="material-icons opacity-6 me-2" style="font-size: 25px;">contacts</i>CONTACT US
                   </a>
                 </li>
-                <li class="nav-item mx-2">
-                  <a href="{{ url_for('authentication_blueprint.logout') }}" class="nav-link ps-2 d-flex cursor-pointer align-items-center font-weight-bold" style="font-size: 18px;" >
-                    <i class="material-icons opacity-6 me-2" style="font-size: 25px;">logout</i>LOGOUT
+                <li class="nav-item dropdown mx-2">
+                  <a class="nav-link  ps-2 d-flex cursor-pointer align-items-center font-weight-bold" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-size: 20px;">
+                    <i class="material-icons opacity-6 me-2" style="font-size: 25px;">admin_panel_settings</i>Admin
                   </a>
+                  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <li>
+                      <a class="dropdown-item d-flex align-items-center" href="{{ url_for('admin_blueprint.index') }}" style="font-size: 18px;">
+                        <i class="material-icons opacity-6 me-2" style="font-size: 25px;">admin_panel_settings</i>Admin Page
+                      </a>
+                    </li>
+                    <!-- Divider -->
+                    <li><hr class="dropdown-divider"></li>
+                    <!-- Logout -->
+                    <li>
+                      <a 
+                        class="dropdown-item d-flex align-items-center" 
+                        href="{{ url_for('authentication_blueprint.logout') }}" 
+                        style="font-size: 16px;"
+                      >
+                        <i class="material-icons opacity-6 me-2" style="font-size: 25px;">logout</i>Logout
+                      </a>
+                    </li>
+                  </ul>
                 </li>
                 {% else %}
                 <li class="nav-item mx-2">

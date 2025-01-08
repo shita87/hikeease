@@ -26,15 +26,15 @@ def login():
     if request.method == 'POST' and 'login' in request.form:
         username = request.form.get('username')
         password = request.form.get('password')
-
         user = Users.query.filter_by(username=username).first()
         if user and verify_pass(password, user.password):
             login_user(user)
-            return redirect(url_for('home_blueprint.index'))
+            return redirect(url_for('admin_blueprint.index'))
         return render_template('accounts/login.html', form=login_form, msg='Wrong username or password')
     if not current_user.is_authenticated:
         return render_template('accounts/login.html', form=login_form)
-    return redirect(url_for('home_blueprint.index')) 
+    return redirect(url_for('home_blueprint.index'))
+
 
 @blueprint.route('/register', methods=['GET', 'POST'])
 def register():
