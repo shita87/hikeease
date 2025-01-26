@@ -4,9 +4,7 @@ networks:
 
 services:
   hikeease-app:
-    context: .
-    build: .Dockerfile
-    image: nginx:latest
+    build: .
     container_name: "hikeease"
 
   nginx:
