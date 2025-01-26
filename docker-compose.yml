@@ -11,6 +11,8 @@ services:
     - 5000:5000
     volumes:
     - /hikeease/.:/hikeease
+    networks:
+      - hikeease-network
 
   nginx:
     restart: always
