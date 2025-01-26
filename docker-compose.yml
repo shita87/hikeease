@@ -12,12 +12,12 @@ services:
     container_name: "nginx"
     image: nginx:latest
     ports:
-      - "443:443"
+      - "80:80"
     depends_on:
       - hikeease-app
     volumes:
       - .nginx.conf:/etc/nginx/nginx.conf:ro
-      - ./ssl/hike.pem:/etc/ssl/certs/hikeease.pem:rw
-      - ./ssl/nso_indosatooredoo_com.key:/etc/ssl/private/hikeease.key:rw
+      # - ./ssl/hike.pem:/etc/ssl/certs/hikeease.pem:rw
+      # - ./ssl/nso_indosatooredoo_com.key:/etc/ssl/private/hikeease.key:rw
     networks:
       - hikeease-network
