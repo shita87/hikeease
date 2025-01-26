@@ -5,9 +5,10 @@ networks:
 services:
   hikeease-app:
     build: .
+    image: python:3.10
     container_name: "hikeease"
     volumes:
-    - /hikeease:/
+    - /hikeease/.:/hikeease
 
   nginx:
     restart: always

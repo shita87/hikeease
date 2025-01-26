@@ -3,6 +3,8 @@ FROM python:3.10
 # set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
+RUN mkdir /hikeease
+WORKDIR /hikeease
 
 COPY requirements.txt .
 
