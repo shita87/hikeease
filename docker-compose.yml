@@ -5,7 +5,7 @@ networks:
 services:
   hikeease-app:
     build: .
-    image: python:3.10
+    image: hikeease-app:latest
     container_name: "hikeease"
     volumes:
     - /hikeease/.:/hikeease
