@@ -12,6 +12,10 @@ def index():
 def contact_us():
     return render_template('home/contact_us.html', segment='index')
 
+@blueprint.route('/galery')
+def galery():
+    return render_template('home/galery.html', segment='index')
+
 @blueprint.route('/<template>')
 def route_template(template):
     try:
