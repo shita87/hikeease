@@ -5,30 +5,104 @@
 {% block body_class %} sign-in-basic {% endblock %}
 
 <!-- Specific Page CSS goes HERE  -->
-{% block stylesheets %}
+{% block stylesheets %} 
 
 {% endblock stylesheets %}
 
 {% block content %}
 
   {% include 'includes/navigation.html' %} 
-  <section id="header" class="page-header align-items-start min-vh-95" style="background-image: url('/static/assets/img/arjuno.jpg');" loading="lazy">
-    <span class="mask bg-gradient-dark opacity-3"></span>
+  <section id="header" class="page-header align-items-start min-vh-75" style="background-image: url('/static/assets/img/arjuno.jpg');" loading="lazy">
+    <span class="opacity-1"></span>
     <div class="container my-auto">
       <div class="row">
-        <!-- Your content for the header goes here -->
+        <div class="text-middle-right">
+          <h1>EXPLORE</h1>
+          <h1>MOUNTAINS</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="text-middle-left-mount">
+          <h1>MT ARJUNO</h1>
+        </div>
+        <p>
+
+        </p>
+        <p>
+          
+        </p>
+        <div class="col-lg-6">
+          <div class="row">
+            <div class="col-md-6">
+              <div>
+                <p style="font-size: large; color: black; font-weight: bolder;">
+                  <i class="fas fa-mountain text-black me-2"></i> Elevation: 2112 Meters
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div>
+                <p style="font-size: large; color: black; font-weight: bolder;">
+                  <i class="fa-solid fa-compass text-black me-2"></i> 6°43' LS dan 106°44' BT
+                </p>
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="border rounded mb-3" style="height: 290px; overflow: hidden;">
+            <iframe 
+              src="https://maps.google.com/maps?q=Mount%20Arjuno&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+              width="100%" 
+              height="100%" 
+              frameborder="0" 
+              style="border:0;" 
+              allowfullscreen>
+            </iframe>
+          </div>
       </div>
     </div>
   </section>
-  <section id="body" class="page-header align-items-start min-vh-100" style="background-image: url('/static/assets/img/shapes/map.svg');">
+  <section id="section-body" class="page-header align-items-start min-vh-100" style="background-image: url('/static/assets/img/shapes/map.svg');">
     <span class="mask bg-gradient-dark opacity-1"></span>
-    <div class="container my-auto">
-      <div class="row">
-        <!-- Your content for the body goes here -->
+    <div class="row">
+      <div class="section-container">
+        <div class="header-section">
+          <h1>MOUNTAIN'S DETAIL</h1>
+        </div>
+        <div class="section-content">
+          <div class="section-details">
+            <h2>MT ARJUNO</h2>
+            <p>Mount Arjuno's climbing trails are renowned for their extreme nature among hikers. Located within Bogor and Sukabumi Regencies, Mount Arjuno is an attractive hiking destination for nature enthusiasts.</p>
+            <p>Reaching a height of 2,211 meters above sea level, Mount Arjuno offers unique natural beauty and challenges that test the courage of climbers. Known for its high difficulty level, Mount Arjuno has dense and often closed forest vegetation.</p>
+            <p>Weather conditions in this area also tend to be unpredictable. The trails are steep, slippery, and traverse the mountain ridges.</p>
+            <button type="button" class="btn section-button">
+              <a href="index.html">
+                Book Now
+              </a>
+            </button>
+            
+          </div>
+          <div class="section-info">
+            <ul>
+              <li><span>Price :</span> 40.000/person</li>
+              <li><span>Difficulty :</span> 8/10</li>
+              <li><span>Contact :</span> +62-xxxx-xxx-xxx</li>
+              <li><span>Location :</span> xxxxxxxxxxxxxxxxxx</li>
+              <li><span>Facility :</span> Transport</li>
+              <li><span></span> Meal & Water on the mountain</li>
+              <li><span></span> Entrance Ticket </li>
+              <li><span></span> Guide </li>
+              <li><span></span> Standard P3K </li>
+              <li><span></span> Porter Team </li>
+              <li><span></span> Tents according to capacity </li>
+              <li><span></span> Photo documentation </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </section>
-  {% include 'includes/footer.html' %}
+  <!-- {% include 'includes/footer.html' %} -->
 
 
 {% endblock content %}

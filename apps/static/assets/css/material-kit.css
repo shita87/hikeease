@@ -8,7 +8,7 @@
   --bs-blue: #63B3ED;
   --bs-indigo: #596CFF;
   --bs-purple: #6f42c1;
-  --bs-pink: #d63384;
+  --bs-danger: #d63384;
   --bs-red: #F56565;
   --bs-orange: #fd7e14;
   --bs-yellow: #FBD38D;
@@ -987,6 +987,7 @@ progress {
     flex: 0 0 auto;
     width: 41.66667%; }
   .col-md-6 {
+    font-size: x-large;
     flex: 0 0 auto;
     width: 50%; }
   .col-md-7 {
@@ -17228,6 +17229,164 @@ span.flatpickr-weekday {
   top: auto;
   right: 28px; }
 
+.text-middle-left {
+  position: absolute;
+  top: 55%;
+  left: 15%; 
+  transform: translateY(-50%); 
+  color: #2f2b2b; 
+  text-align: left;
+}
+.text-middle-left h1 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 70px;
+  color: #2f2b2b;
+}
+.text-middle-left p {
+  font-size: 20px;
+  margin: 0% 0 0;
+}
+.text-middle-left pe {
+  font-size: 20px;
+  font-weight: bolder;
+  margin: 0% 0 0;
+}
+.explore_title h1{
+  position: absolute;
+  top: 65%;
+  left: 7%; 
+  font-family: 'Roboto', sans-serif;
+  font-size: 70px;
+  color: #2f2b2b;
+}
+
+.text-middle-left-mount {
+  position: absolute;
+  top: 20%;
+  left: 17%; 
+  transform: translateY(-50%); 
+  color: #2f2b2b; 
+  text-align: left;
+}
+.text-middle-left-mount h1 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 50px;
+  font-style: unset;
+  text-decoration: underline;
+  color: var(--bs-danger);
+}
+.text-middle-left-mount p {
+  font-size: 20px;
+  margin: 0% 0 0;
+}
+.text-middle-left-mount pe {
+  font-size: 20px;
+  font-weight: bolder;
+  margin: 0% 0 0;
+}
+
+.text-middle-right {
+  position: absolute;
+  top: 30%;
+  right: 17%; 
+  text-align: right;
+}
+.text-middle-right h1 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 50px;
+  right: 35%;
+  color: var(--bs-danger);
+  text-align: right;
+}
+.text-middle-right p {
+  font-size: 20px;
+  margin: 0% 0 0;
+}
+.section-body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #1a1a1a;
+  color: white;
+  line-height: 1.6;
+}
+.section-container {
+  padding: 20px;
+}
+.header-section {
+  text-align: center;
+  margin-top: 5%;
+  margin-bottom: 40px;
+}
+
+.header-section h1 {
+  text-decoration: underline;
+  color: var(--bs-danger);
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.section-content {
+  margin-left: 17%;
+  margin-right: 17%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+.section-details {
+  font-size: 2rem;
+  color: white;
+  margin-right: 3%;
+  flex: 1 1 60%;
+}
+.section-details h2 {
+  color: var(--bs-danger);
+  text-decoration: underline;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+.section-details p {
+  font-size: 25px;
+  margin-right: 20%;
+  margin-bottom: 20px;
+}
+.section-button {
+  display: block;
+  text-align: center;
+  margin-right: 20%;
+  padding: 10px 20px;
+  background-color: var(--bs-danger);
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+.section-button:hover {
+  background-color: #e64522;
+}
+.section-info {
+  color: white;
+  flex: 1 1 35%;
+  padding: 0;
+  border-radius: 1px;
+}
+.section-info ul {
+  font-size: 20px;
+}
+.section-info ul li {
+  font-size: 20px;
+  display: flex;
+  align-items: right;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  margin-right: 5%;
+  margin-left: 0;
+}
+.section-info ul li span {
+  font-size: 25px;
+  font-weight: bold;
+}
 /* PrismJS 1.23.0
 https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript */
 /**
