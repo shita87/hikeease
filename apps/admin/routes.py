@@ -13,8 +13,8 @@ def index():
         return jsonify([{
             "id": b.id,
             "group_name": b.group_name,
-            "member_name": b.member_name,  # assuming you meant 'name' as 'member_name'
-            "member_email": b.member_email,  # assuming you meant 'email' as 'member_email'
+            "member_name": b.member_name,
+            "member_email": b.member_email,
             "nationality": b.nationality,
             "age": b.age,
             "phone": b.phone,
@@ -29,5 +29,30 @@ def index():
             "addr": b.addr
         } for b in bookings])
 
-    # If not 'format=json', render the bookings list in the admin page
     return render_template('admin/admin.html', bookings=bookings)
+
+@blueprint.route('/admin/booking/<int:booking_id>', methods=['GET'])
+@login_required
+def get_booking(booking_id):
+    booking = Booking.query.get(booking_id)
+    if not booking:
+        return jsonify({"error": "Booking not found"}), 404
+    
+    return jsonify({
+        "id": booking.id,
+        "group_name": booking.group_name,
+        "member_name": booking.member_name,
+        "member_email": booking.member_email,
+        "nationality": booking.nationality,
+        "age": booking.age,
+        "phone": booking.phone,
+        "emergency_phone": booking.emergency_phone,
+        "identity_type": booking.identity_type,
+        "identity_number": booking.identity_number,
+        "identity_file": booking.identity_file,
+        "mountain_name": booking.mountain_name,
+        "climb_date": booking.climb_date.strftime('%Y-%m-%d'),
+        "province": booking.province,
+        "city": booking.city,
+        "addr": booking.addr
+        })

@@ -116,65 +116,197 @@
     </div>
   </div>
 
-  <script>
-    function fetchBookings() {
-      fetch('/admin?format=json')
-      .then(response => response.json())
-      .then(data => {
-        const tableBody = document.getElementById('table-body');
-        tableBody.innerHTML = '';
-        data.forEach(booking => {
-          const row = document.createElement('tr');
-          row.innerHTML = `
-          <td>${booking.id}</td>
-          <td>${booking.group_name}</td>
-          <td>${booking.member_name}</td>
-          <td>${booking.member_email}</td>
-          <td>${booking.phone}</td>
-          <td>${booking.mountain_name}</td>
-          <td>${booking.climb_date}</td>
-          <td>
-            <button class="btn btn-info btn-sm" onclick="showDetails(${booking.id})">Detail</button>
-            <button class="btn btn-danger btn-sm">Delete</button>
-          </td>`;
-          tableBody.appendChild(row);
-          });
-        })
-        .catch(error => console.error('Error fetching bookings:', error));
-      }
-    
-    function showDetails(bookingId) {
-      fetch(`/admin/booking/${bookingId}`)
-      .then(response => response.json())
-      .then(booking => {
-        alert(`Booking Details:\n\nID: ${booking.id}\nGroup: ${booking.group_name}\nMember: ${booking.member_name}\nEmail: ${booking.member_email}\nPhone: ${booking.phone}\nMountain: ${booking.mountain_name}\nClimb Date: ${booking.climb_date}\nAdditional Info: ${booking.additional_info || 'N/A'}`);})
-        .catch(error => console.error('Error fetching booking details:', error));
-      }
-    
-document.getElementById('searchInput').addEventListener('input', function() {
-      const filter = this.value.toLowerCase();
-      const rows = document.querySelectorAll('#table-body tr');
-      rows.forEach(row => {
-        const columns = row.querySelectorAll('td');
-        const name = columns[1].innerText.toLowerCase();
-        if (name.includes(filter)) {
-          row.style.display = '';
-        } else {
-          row.style.display = 'none';
-        }
-      });
-    });
+  <div id="detailsModal" style="display:none; position:fixed; top:20%; left:50%; transform:translate(-50%, 0); background:#fff; padding:20px; border-radius:5px; box-shadow:0px 0px 10px rgba(0,0,0,0.3); z-index: 9999;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="detailsModalLabel">Booking Details</h5>
+      </div>
+      <p>
+        
+      </p>
+      <div class="modal-body">
+        <table>
+            <tr>
+                <td><strong>ID:</strong></td>
+                <td><span id="detail-id"></span></td>
+            </tr>
+            <tr>
+                <td><strong>Group Name:</strong></td>
+                <td><span id="detail-group-name"></span></td>
+            </tr>
+            <tr>
+                <td><strong>Member Name:</strong></td>
+                <td><span id="detail-member-name"></span></td>
+            </tr>
+            <tr>
+                <td><strong>Email:</strong></td>
+                <td><span id="detail-member-email"></span></td>
+            </tr>
+            <tr>
+                <td><strong>Nationality:</strong></td>
+                <td><span id="detail-nationality"></span></td>
+            </tr>
+            <tr>
+                <td><strong>Age:</strong></td>
+                <td><span id="detail-age"></span></td>
+            </tr>
+            <tr>
+                <td><strong>Phone:</strong></td>
+                <td><span id="detail-phone"></span></td>
+            </tr>
+            <tr>
+                <td><strong>Emergency Phone:</strong></td>
+                <td><span id="detail-emergency-phone"></span></td>
+            </tr>
+            <tr>
+                <td><strong>Identity Type:</strong></td>
+                <td><span id="detail-identity-type"></span></td>
+            </tr>
+            <tr>
+                <td><strong>Identity File:</strong></td>
+                <td><div id="detail-identity-file"></div></td>
+            </tr>
+            <tr>
+                <td><strong>Identity Number:</strong></td>
+                <td><span id="detail-identity-number"></span></td>
+            </tr>
+            <tr>
+                <td><strong>Mountain:</strong></td>
+                <td><span id="detail-mountain-name"></span></td>
+            </tr>
+            <tr>
+                <td><strong>Climb Date:</strong></td>
+                <td><span id="detail-climb-date"></span></td>
+            </tr>
+            <tr>
+                <td><strong>Province:</strong></td>
+                <td><span id="detail-province"></span></td>
+            </tr>
+            <tr>
+                <td><strong>City:</strong></td>
+                <td><span id="detail-city"></span></td>
+            </tr>
+            <tr>
+                <td><strong>Address:</strong></td>
+                <td><span id="detail-addr"></span></td>
+            </tr>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button onclick="document.getElementById('detailsModal').style.display='none'">Close</button>
+      </div>
+    </div>
+  </div>
+  
+  <script>      
+      function fetchBookings() {
+        fetch('/admin?format=json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                const tableBody = document.getElementById('table-body');
+                tableBody.innerHTML = '';
 
-    function showSection(sectionId) {
-        const sections = document.querySelectorAll('.section');
-        sections.forEach(section => {
-            section.style.display = 'none';
-        });
-        document.getElementById(sectionId).style.display = 'block';
+                if (!Array.isArray(data) || data.length === 0) {
+                    tableBody.innerHTML = '<tr><td colspan="8">No bookings found.</td></tr>';
+                    return;
+                }
+
+                data.forEach(booking => {
+                    const row = document.createElement('tr');
+
+                    row.innerHTML = `
+                        <td>${booking.id}</td>
+                        <td>${booking.group_name}</td>
+                        <td>${booking.member_name}</td>
+                        <td>${booking.member_email}</td>
+                        <td>${booking.phone}</td>
+                        <td>${booking.mountain_name}</td>
+                        <td>${booking.climb_date}</td>
+                        <td>
+                            <button class="btn btn-info btn-sm" onclick="showDetails(${booking.id})">Detail</button>
+                            <button class="btn btn-danger btn-sm" onclick="deleteBooking(${booking.id})">Delete</button>
+                        </td>
+                    `;
+
+                    tableBody.appendChild(row);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching bookings:', error);
+                document.getElementById('table-body').innerHTML = '<tr><td colspan="8">Failed to load data.</td></tr>';
+            });
     }
 
-    fetchBookings();
+      function showDetails(bookingId) {
+        fetch(`/admin/booking/${bookingId}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(booking => {
+                if (booking.error) {
+                    alert("Booking not found!");
+                    return;
+                }
+                document.getElementById("detail-id").innerText = booking.id;
+                document.getElementById("detail-group-name").innerText = booking.group_name;
+                document.getElementById("detail-member-name").innerText = booking.member_name;
+                document.getElementById("detail-member-email").innerText = booking.member_email;
+                document.getElementById("detail-nationality").innerText = booking.nationality;
+                document.getElementById("detail-age").innerText = booking.age;
+                document.getElementById("detail-phone").innerText = booking.phone;
+                document.getElementById("detail-emergency-phone").innerText = booking.emergency_phone;
+                document.getElementById("detail-identity-type").innerText = booking.identity_type;
+                document.getElementById("detail-identity-file").innerHTML = `<img src="${booking.identity_file}" alt="Identity File" style="max-width: 20%; height: 20%;" />`;
+                document.getElementById("detail-identity-number").innerText = booking.identity_number;
+                document.getElementById("detail-mountain-name").innerText = booking.mountain_name;
+                document.getElementById("detail-climb-date").innerText = booking.climb_date;
+                document.getElementById("detail-province").innerText = booking.province;
+                document.getElementById("detail-city").innerText = booking.city;
+                document.getElementById("detail-addr").innerText = booking.addr;
+
+                // Show the details section or modal
+                document.getElementById("detailsModal").style.display = "block";
+            })
+            .catch(error => {
+                console.error("Error fetching booking details:", error);
+                alert("Failed to load booking details.");
+            });
+    }
+
+
+      document.getElementById('searchInput').addEventListener('input', function() {
+          const filter = this.value.toLowerCase();
+          const rows = document.querySelectorAll('#table-body tr');
+          rows.forEach(row => {
+              const columns = row.querySelectorAll('td');
+              const name = columns[1].innerText.toLowerCase();
+              if (name.includes(filter)) {
+                  row.style.display = '';
+              } else {
+                  row.style.display = 'none';
+              }
+          });
+      });
+
+      function showSection(sectionId) {
+          const sections = document.querySelectorAll('.section');
+          sections.forEach(section => {
+              section.style.display = 'none';
+          });
+          document.getElementById(sectionId).style.display = 'block';
+      }
+
+      document.addEventListener("DOMContentLoaded", fetchBookings);
   </script>
+
 {% endblock content %}
 
 <!-- Specific Page JS goes HERE -->
