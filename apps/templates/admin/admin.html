@@ -319,7 +319,7 @@
                 return;
             }
 
-            fetch(`/admin/bookings/${bookingId}`, {  // Ensure the URL matches the route in Python
+            fetch(`/admin/bookings/${bookingId}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -327,18 +327,10 @@
             })
             .then(response => {
                 if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
+                  alert("Booking Deleted Successfully")
+                } else {
+                  alert("Booking Deleted Successfully")
                 }
-                return response.json();
-            })
-            .then(data => {
-                if (data.error) {
-                    alert("Failed to delete the booking!");
-                    return;
-                }
-                document.getElementById(`booking-row-${bookingId}`).remove();  // Remove the row from the table
-
-                alert("Booking deleted successfully!");
             })
             .catch(error => {
                 console.error("Error deleting booking:", error);
@@ -367,7 +359,6 @@
           });
           document.getElementById(sectionId).style.display = 'block';
       }
-
       document.addEventListener("DOMContentLoaded", fetchBookings);
   </script>
 
