@@ -1,4 +1,5 @@
 from apps.admin import blueprint
+from apps import db
 from apps.home.models import Booking
 from flask import render_template, request, jsonify
 from flask_login import login_required
@@ -56,3 +57,21 @@ def get_booking(booking_id):
         "city": booking.city,
         "addr": booking.addr
         })
+
+@blueprint.route('/admin/bookings/<int:id>', methods=['DELETE'])
+@login_required
+def delete_booking(id):
+    try:
+        booking = Booking.query.get(id)
+
+        if not booking:
+            return jsonify({"error": "Booking not found"}), 404
+
+        # Delete the booking
+        db.session.delete(booking)
+        db.session.commit()
+
+        return jsonify({"message": "Booking deleted successfully"}), 200
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 400
