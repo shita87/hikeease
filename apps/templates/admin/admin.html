@@ -44,6 +44,34 @@
         outline: none;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       }
+      table {
+          width: 100%;
+          border-collapse: collapse;
+          margin: 20px 0;
+      }
+      table, th, td {
+          border: 1px solid #ddd;
+      }
+      th, td {
+          padding: 12px;
+          text-align: left;
+      }
+      th {
+          background-color: #f2f2f2;
+          font-weight: bold;
+      }
+      td {
+          background-color: #f9f9f9;
+      }
+      tr:nth-child(even) td {
+          background-color: #f2f2f2;
+      }
+      tr:hover td {
+          background-color: #f1f1f1;
+      }
+      .label {
+          font-weight: bold;
+      }
   </style>
   <div class="page-header align-items-start min-vh-100" style="background-image: url('/static/assets/img/bg9.jpg');" loading="lazy">
     <span class="mask bg-gradient-dark opacity-2"></span>
@@ -116,82 +144,88 @@
     </div>
   </div>
 
-  <div id="detailsModal" style="display:none; position:fixed; top:20%; left:50%; transform:translate(-50%, 0); background:#fff; padding:20px; border-radius:5px; box-shadow:0px 0px 10px rgba(0,0,0,0.3); z-index: 9999;">
+  <div id="detailsModal" style="width: 600px; height: auto; display:none; position:fixed; top:20%; left:50%; transform:translate(-50%, 0); background:#fff; padding:20px; border-radius:5px; box-shadow:0px 0px 10px rgba(0,0,0,0.3); z-index: 9999;">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="detailsModalLabel">Booking Details</h5>
+        <h2 class="modal-title" id="detailsModalLabel">Booking Details</h2>
       </div>
       <p>
         
       </p>
       <div class="modal-body">
-        <table>
-            <tr>
-                <td><strong>ID:</strong></td>
-                <td><span id="detail-id"></span></td>
-            </tr>
-            <tr>
-                <td><strong>Group Name:</strong></td>
-                <td><span id="detail-group-name"></span></td>
-            </tr>
-            <tr>
-                <td><strong>Member Name:</strong></td>
-                <td><span id="detail-member-name"></span></td>
-            </tr>
-            <tr>
-                <td><strong>Email:</strong></td>
-                <td><span id="detail-member-email"></span></td>
-            </tr>
-            <tr>
-                <td><strong>Nationality:</strong></td>
-                <td><span id="detail-nationality"></span></td>
-            </tr>
-            <tr>
-                <td><strong>Age:</strong></td>
-                <td><span id="detail-age"></span></td>
-            </tr>
-            <tr>
-                <td><strong>Phone:</strong></td>
-                <td><span id="detail-phone"></span></td>
-            </tr>
-            <tr>
-                <td><strong>Emergency Phone:</strong></td>
-                <td><span id="detail-emergency-phone"></span></td>
-            </tr>
-            <tr>
-                <td><strong>Identity Type:</strong></td>
-                <td><span id="detail-identity-type"></span></td>
-            </tr>
-            <tr>
-                <td><strong>Identity File:</strong></td>
-                <td><div id="detail-identity-file"></div></td>
-            </tr>
-            <tr>
-                <td><strong>Identity Number:</strong></td>
-                <td><span id="detail-identity-number"></span></td>
-            </tr>
-            <tr>
-                <td><strong>Mountain:</strong></td>
-                <td><span id="detail-mountain-name"></span></td>
-            </tr>
-            <tr>
-                <td><strong>Climb Date:</strong></td>
-                <td><span id="detail-climb-date"></span></td>
-            </tr>
-            <tr>
-                <td><strong>Province:</strong></td>
-                <td><span id="detail-province"></span></td>
-            </tr>
-            <tr>
-                <td><strong>City:</strong></td>
-                <td><span id="detail-city"></span></td>
-            </tr>
-            <tr>
-                <td><strong>Address:</strong></td>
-                <td><span id="detail-addr"></span></td>
-            </tr>
-        </table>
+        <div class="container-fluid">
+          <div class="row" style="max-height: 600px; overflow-y: auto;">
+            <table>
+                <tr>
+                    <td class="label">Booking ID:</td>
+                    <td><span id="detail-id"></span></td>
+                </tr>
+                <tr>
+                    <td class="label">Group Name:</td>
+                    <td><span id="detail-group-name"></span></td>
+                </tr>
+                <tr>
+                    <td class="label">Name:</td>
+                    <td><span id="detail-member-name"></span></td>
+                </tr>
+                <tr>
+                    <td class="label">Email:</td>
+                    <td><span id="detail-member-email"></span></td>
+                </tr>
+                <tr>
+                    <td class="label">Nationality:</td>
+                    <td><span id="detail-nationality"></span></td>
+                </tr>
+                <tr>
+                    <td class="label">Age:</td>
+                    <td><span id="detail-age"></span></td>
+                </tr>
+                <tr>
+                    <td class="label">Phone:</td>
+                    <td><span id="detail-phone"></span></td>
+                </tr>
+                <tr>
+                    <td class="label">Emergency Phone:</td>
+                    <td><span id="detail-emergency-phone"></span></td>
+                </tr>
+                <tr>
+                    <td class="label">Identity Type:</td>
+                    <td><span id="detail-identity-type"></span></td>
+                </tr>
+                <tr>
+                    <td class="label">Identity File:</td>
+                    <td><div id="detail-identity-file"></div></td>
+                </tr>
+                <tr>
+                    <td class="label">Identity Number:</td>
+                    <td><span id="detail-identity-number"></span></td>
+                </tr>
+                <tr>
+                    <td class="label">Mountain:</td>
+                    <td><span id="detail-mountain-name"></span></td>
+                </tr>
+                <tr>
+                    <td class="label">Climb Date:</td>
+                    <td><span id="detail-climb-date"></span></td>
+                </tr>
+                <tr>
+                    <td class="label">Province:</td>
+                    <td><span id="detail-province"></span></td>
+                </tr>
+                <tr>
+                    <td class="label">City:</td>
+                    <td><span id="detail-city"></span></td>
+                </tr>
+                <tr>
+                    <td class="label">Address:</td>
+                    <td><span id="detail-addr"></span></td>
+                </tr>
+            </table>
+          </div>
       </div>
+      <p>
+
+      </p>
       <div class="modal-footer">
         <button onclick="document.getElementById('detailsModal').style.display='none'">Close</button>
       </div>
