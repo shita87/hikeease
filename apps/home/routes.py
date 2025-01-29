@@ -92,6 +92,7 @@ def create_booking():
 
         db.session.add(new_booking)
         db.session.commit()
+
         booking_id = new_booking.id
         group_name = new_booking.group_name
         member_name = new_booking.member_name
@@ -99,7 +100,6 @@ def create_booking():
         phone = new_booking.phone
         mountain_name = new_booking.mountain_name
         climb_date = new_booking.climb_date
-        # message = f'Booking Created for \nGroup: {group_name} Name: {member_name} Mail Address: {member_email} Phone Number {phone} Book Package: {mountain_name}_Package Booking Scheduled: {climb_date}'
         message = (
             f"📢 Booking Created! ✅\n"
             f"----------------------\n"
@@ -109,8 +109,7 @@ def create_booking():
             f"📧 Email: {member_email}\n"
             f"📞 Phone: {phone}\n"
             f"⛰️ Package: {mountain_name} Package\n"
-            f"📅 Scheduled Date: {climb_date}\n"
-)
+            f"📅 Scheduled Date: {climb_date}\n")
         send_telegram_message(message)
 
         return jsonify({"message": "Booking created successfully", "with id": new_booking.id}), 201
