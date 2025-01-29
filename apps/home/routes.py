@@ -53,8 +53,8 @@ def create_booking():
     try:
         new_booking = Booking(
             group_name=data['group_name'],
-            name=data['name'],
-            email=data['email'],
+            member_name=data['member_name'],
+            member_email=data['member_email'],
             nationality=data.get('nationality', ''),
             age=data.get('age'),
             phone=data.get('phone'),
