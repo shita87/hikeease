@@ -89,7 +89,7 @@ def create_booking():
         db.session.add(new_booking)
         db.session.commit()
 
-        return jsonify({"message": "Booking created successfully", "id": new_booking.id}), 201
+        return jsonify({"message": "Booking created successfully", "with id": new_booking.id}), 201
 
     except Exception as e:
         return jsonify({"error": str(e)}), 400

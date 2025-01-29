@@ -71,7 +71,6 @@ def delete_booking(id):
         # Delete the booking
         db.session.delete(booking)
         db.session.commit()
-
         return jsonify({"message": "Booking deleted successfully"}), 200
 
     except Exception as e:

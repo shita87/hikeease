@@ -326,10 +326,11 @@
                 },
             })
             .then(response => {
-                if (!response.ok) {
-                  alert("Booking Deleted Successfully")
+                if (response.ok) {
+                  window.location.href = '/admin'; 
+                  alert("Booking Deleted Successfully");
                 } else {
-                  alert("Booking Deleted Successfully")
+                  alert("Booking Deletion Failed");
                 }
             })
             .catch(error => {

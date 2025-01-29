@@ -35,7 +35,6 @@
                         <select class="form-control" name="nationality" id="nationality-select">
                             <option value="">Select Nationality</option>
                         </select>
-                        <!-- <input type="text" class="form-control" name="nationality"> -->
                     </div>
                     <div class="col-lg-6">
                         <label class="form-label" style="font-size: 15px; font-weight: bold; color: white;">Province</label>
@@ -117,45 +116,6 @@
             })
             .catch(error => {
                 console.error('Error fetching nationalities:', error);
-            });
-      </script>
-      <script>
-        // Fetch JSON data from a file
-        fetch('/static/assets/js/province.json')  // Replace with the actual path to your JSON file
-            .then(response => response.json())
-            .then(data => {
-                // Populate Province Dropdown
-                const provinsiSelect = document.getElementById('provinsi-select');
-                data.forEach(entry => {
-                    const option = document.createElement('option');
-                    option.value = entry.provinsi;
-                    option.textContent = entry.provinsi;
-                    provinsiSelect.appendChild(option);
-                });
-        
-                // Handle Province Change Event
-                provinsiSelect.addEventListener('change', function() {
-                    const selectedProvince = this.value;
-                    const kotaSelect = document.getElementById('kota-select');
-        
-                    // Clear existing cities in the kota dropdown
-                    kotaSelect.innerHTML = "<option value=''>Select City</option>";
-        
-                    // Find the selected province's cities
-                    const provinceData = data.find(item => item.provinsi === selectedProvince);
-        
-                    if (provinceData) {
-                        provinceData.kota.forEach(city => {
-                            const option = document.createElement('option');
-                            option.value = city;
-                            option.textContent = city;
-                            kotaSelect.appendChild(option);
-                        });
-                    }
-                });
-            })
-            .catch(error => {
-                console.error('Error fetching the JSON file:', error);
             });
       </script>
 {% endblock content %}
