@@ -93,10 +93,3 @@ def create_booking():
 
     except Exception as e:
         return jsonify({"error": str(e)}), 400
-
-@blueprint.route('/<str:grou_name>', methods=['GET'])
-def check_group_name():
-   group = Booking.query.filter_by()(name='grou_name').first()
-   if group:
-        return jsonify({'exists': True, 'group_id': group.id})
-   return jsonify({'exists': False})
