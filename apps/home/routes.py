@@ -49,33 +49,6 @@ def get_segment(request):
     except:
         return None
 
-# @blueprint.route('/bookings', methods=['POST'])
-# def create_booking():
-#     data = request.json
-#     try:
-#         new_booking = Booking(
-#             group_name=data['group_name'],
-#             member_name=data['member_name'],
-#             member_email=data['member_email'],
-#             nationality=data.get('nationality', ''),
-#             age=data.get('age'),
-#             phone=data.get('phone'),
-#             emergency_phone=data.get('emergency_phone'),
-#             identity_type=data.get('identity_type'),
-#             identity_number=data.get('identity_number'),
-#             identity_file=data.get('identity_file'),
-#             mountain_name=data.get('mountain_name'),
-#             climb_date=datetime.strptime(data['climb_date'], '%Y-%m-%d') if 'climb_date' in data else None,
-#             province=data.get('province'),
-#             city=data.get('city'),
-#             addr=data.get('addr')
-#         )
-#         db.session.add(new_booking)
-#         db.session.commit()
-#         return jsonify({"message": "Booking created successfully", "id": new_booking.id}), 201
-#     except Exception as e:
-#         return jsonify({"error": str(e)}), 400
-
 ALLOWED_EXTENSIONS = {"jpg", "jpeg", "pdf"}
 
 def allowed_file(filename):
