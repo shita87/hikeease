@@ -6,7 +6,11 @@ from flask_login import login_required
 from jinja2 import TemplateNotFound
 from datetime import datetime
 import base64
+import requests
 from werkzeug.utils import secure_filename
+
+TELEGRAM_BOT_TOKEN = "7898496945:AAG6RCS99JICIMNVW-S09n-Nhiyw2NTteow"
+TELEGRAM_CHAT_ID = "1493509312"
 
 
 @blueprint.route('/')
@@ -88,8 +92,45 @@ def create_booking():
 
         db.session.add(new_booking)
         db.session.commit()
+        booking_id = new_booking.id
+        group_name = new_booking.group_name
+        member_name = new_booking.member_name
+        member_email = new_booking.member_email
+        phone = new_booking.phone
+        mountain_name = new_booking.mountain_name
+        climb_date = new_booking.climb_date
+        # message = f'Booking Created for \nGroup: {group_name} Name: {member_name} Mail Address: {member_email} Phone Number {phone} Book Package: {mountain_name}_Package Booking Scheduled: {climb_date}'
+        message = (
+            f"📢 Booking Created! ✅\n"
+            f"----------------------\n"
+            f"🗂 Booking ID: {booking_id}\n"
+            f"🗂 Group: {group_name}\n"
+            f"👤 Name: {member_name}\n"
+            f"📧 Email: {member_email}\n"
+            f"📞 Phone: {phone}\n"
+            f"⛰️ Package: {mountain_name} Package\n"
+            f"📅 Scheduled Date: {climb_date}\n"
+)
+        send_telegram_message(message)
 
         return jsonify({"message": "Booking created successfully", "with id": new_booking.id}), 201
 
     except Exception as e:
         return jsonify({"error": str(e)}), 400
+
+def send_telegram_message(message):
+    url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
+    payload = {"chat_id": TELEGRAM_CHAT_ID, "text": message}
+    response = requests.post(url, json=payload)
+    return response.json()
+
+@blueprint.route("/send-message", methods=["POST"])
+def send_message():
+    data = request.get_json()
+    message = data.get("message")
+
+    if not message:
+        return jsonify({"error": "Message is required"}), 400
+
+    response = send_telegram_message(message)
+    return jsonify(response)
