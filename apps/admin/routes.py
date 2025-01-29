@@ -58,6 +58,7 @@ def get_booking(booking_id):
         "addr": booking.addr
         })
 
+
 @blueprint.route('/admin/bookings/<int:id>', methods=['DELETE'])
 @login_required
 def delete_booking(id):

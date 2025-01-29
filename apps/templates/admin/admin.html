@@ -315,36 +315,36 @@
       }
 
       function deleteBooking(bookingId) {
-        if (!confirm("Are you sure you want to delete this booking?")) {
-          return;
-        }
-
-        fetch(`/admin/booking/${bookingId}`, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(data => {
-            if (data.error) {
-                alert("Failed to delete the booking!");
+            if (!confirm("Are you sure you want to delete this booking?")) {
                 return;
             }
-            document.getElementById(`booking-row-${bookingId}`).remove();
 
-            alert("Booking deleted successfully!");
-        })
-        .catch(error => {
-            console.error("Error deleting booking:", error);
-            alert("Failed to delete the booking.");
-        });
-      }
+            fetch(`/admin/bookings/${bookingId}`, {  // Ensure the URL matches the route in Python
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.error) {
+                    alert("Failed to delete the booking!");
+                    return;
+                }
+                document.getElementById(`booking-row-${bookingId}`).remove();  // Remove the row from the table
+
+                alert("Booking deleted successfully!");
+            })
+            .catch(error => {
+                console.error("Error deleting booking:", error);
+                alert("Failed to delete the booking.");
+            });
+        }
 
       document.getElementById('searchInput').addEventListener('input', function() {
           const filter = this.value.toLowerCase();
