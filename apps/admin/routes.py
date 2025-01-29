@@ -13,8 +13,8 @@ def index():
         return jsonify([{
             "id": b.id,
             "group_name": b.group_name,
-            "name": b.name,
-            "email": b.email,
+            "member_name": b.member_name,  # assuming you meant 'name' as 'member_name'
+            "member_email": b.member_email,  # assuming you meant 'email' as 'member_email'
             "nationality": b.nationality,
             "age": b.age,
             "phone": b.phone,
@@ -28,4 +28,6 @@ def index():
             "city": b.city,
             "addr": b.addr
         } for b in bookings])
+
+    # If not 'format=json', render the bookings list in the admin page
     return render_template('admin/admin.html', bookings=bookings)
