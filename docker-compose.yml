@@ -7,8 +7,6 @@ services:
     build: .
     image: hikeease-app:latest
     container_name: "hikeease"
-    ports:
-    - 5000:5000
     volumes:
     - /hikeease/.:/hikeease
     networks:
