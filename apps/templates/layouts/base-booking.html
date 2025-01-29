@@ -11,7 +11,7 @@
   <link  href="/static/assets/css/explore-style.css" rel="stylesheet" />
   <link href="/static/assets/css/nucleo-icons.css" rel="stylesheet" />
   <link href="/static/assets/css/nucleo-svg.css" rel="stylesheet" />
-  <script>
+  <!-- <script>
       async function submitBooking(event) {
           event.preventDefault();
           const formData = new FormData(document.getElementById("bookingForm"));
@@ -29,7 +29,49 @@
               console.error("Error:", error);
           }
       }
-  </script>
+  </script> -->
+  <script>
+    async function submitBooking(event) {
+        event.preventDefault();
+        
+        // Get form data
+        const form = document.getElementById("bookingForm");
+        const formData = new FormData(form);
+
+        // Convert the file to Base64
+        const identityFile = formData.get("identity_file");
+        if (identityFile) {
+            const base64File = await convertToBase64(identityFile);
+            formData.set("identity_file", base64File);
+        }
+
+        // Convert FormData to a regular object to send as JSON
+        const data = Object.fromEntries(formData.entries());
+
+        try {
+            // Send the data to the server as JSON
+            const response = await fetch("/bookings", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data),
+            });
+            const result = await response.json();
+            alert(result.message || result.error);
+        } catch (error) {
+            console.error("Error:", error);
+        }
+    }
+
+    // Convert file to Base64
+    function convertToBase64(file) {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onloadend = () => resolve(reader.result);
+            reader.onerror = reject;
+            reader.readAsDataURL(file);  // This converts the file to Base64
+        });
+    }
+</script>
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/js/all.min.js" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
   <link id="pagestyle" href="/static/assets/css/material-kit.css?v=3.0.0" rel="stylesheet" />
