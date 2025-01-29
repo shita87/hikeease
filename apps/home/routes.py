@@ -55,6 +55,7 @@ def allowed_file(filename):
     """Check if file has an allowed extension"""
     return "." in filename and filename.rsplit(".", 1)[1].lower() in ALLOWED_EXTENSIONS
 
+
 @blueprint.route('/bookings', methods=['POST'])
 def create_booking():
     data = request.json
@@ -92,3 +93,10 @@ def create_booking():
 
     except Exception as e:
         return jsonify({"error": str(e)}), 400
+
+@blueprint.route('/<str:grou_name>', methods=['GET'])
+def check_group_name():
+   group = Booking.query.filter_by()(name='grou_name').first()
+   if group:
+        return jsonify({'exists': True, 'group_id': group.id})
+   return jsonify({'exists': False})
