@@ -2,7 +2,7 @@ from apps import db
 class Booking(db.Model):
     __tablename__ = 'bookings'
     id = db.Column(db.Integer, primary_key=True)
-    group_name = db.Column(db.String(64), unique=True, nullable=False)
+    group_name = db.Column(db.String(64), unique=False, nullable=False)
     member_name = db.Column(db.String(64), unique=True, nullable=False)
     member_email = db.Column(db.String(64), unique=True, nullable=False)
     nationality = db.Column(db.String(64))

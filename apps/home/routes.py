@@ -17,9 +17,27 @@ TELEGRAM_CHAT_ID = "1493509312"
 def index():
     return render_template('home/index.html', segment='index')
 
-@blueprint.route('/contact_us')
+@blueprint.route('/contact_us', methods=['POST'])
 def contact_us():
-    return render_template('home/contact_us.html', segment='index')
+    try:
+        data = request.json if request.is_json else request.form.to_dict()
+        
+        if not data:
+            return jsonify({"error": "No data received"}), 400
+        message = (
+            f"📢 New Message from Customer ✅\n"
+            f"----------------------\n"
+            f"🗂 Name: {data.get('name', 'N/A')}\n"
+            f"📧 Email: {data.get('mail', 'N/A')}\n"
+            f"📞 Phone: {data.get('phone', 'N/A')}\n"
+            f"🗂 Looking For: {data.get('looking_for', 'N/A')}\n"
+            f"👤 Message: {data.get('message', 'N/A')}\n"
+        )
+        send_telegram_message(message)
+        return jsonify({"message": f"Youre Messages well received, and our admin will get back to you shortly"}), 201
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 400
 
 @blueprint.route('/galery')
 def galery():
@@ -112,7 +130,7 @@ def create_booking():
             f"📅 Scheduled Date: {climb_date}\n")
         send_telegram_message(message)
 
-        return jsonify({"message": "Booking created successfully", "with id": new_booking.id}), 201
+        return jsonify({"message": f"Booking created successfully !!! \n \n booking id : {new_booking.id}"}), 201
 
     except Exception as e:
         return jsonify({"error": str(e)}), 400

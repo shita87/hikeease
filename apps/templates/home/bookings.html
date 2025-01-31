@@ -102,22 +102,26 @@
             </form>
         </div>
       </div>
-      <script>
-        fetch('/static/assets/js/nationalities.json')
-            .then(response => response.json())
-            .then(nationalities => {
-                const selectElement = document.getElementById('nationality-select');
-                nationalities.forEach(nationality => {
-                    const option = document.createElement('option');
-                    option.value = nationality;
-                    option.textContent = nationality;
-                    selectElement.appendChild(option);
-                });
-            })
-            .catch(error => {
-                console.error('Error fetching nationalities:', error);
-            });
-      </script>
+    </div>
+</div>
+<!-- Pop-up on bpooking submit -->
+<div class="modal fade" id="responseModal" tabindex="-1" aria-labelledby="responseModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="responseModalLabel">Message</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="modalMessage">
+                <!-- Message will be inserted dynamically -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Add New Person</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="window.location.href='/'">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock content %}
 
 <!-- Specific Page JS goes HERE  -->
