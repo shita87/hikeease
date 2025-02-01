@@ -10,7 +10,7 @@ import requests
 from werkzeug.utils import secure_filename
 
 TELEGRAM_BOT_TOKEN = "7898496945:AAG6RCS99JICIMNVW-S09n-Nhiyw2NTteow"
-TELEGRAM_CHAT_ID = "1493509312"
+TELEGRAM_CHAT_ID = "-4622466822"
 
 
 @blueprint.route('/')
