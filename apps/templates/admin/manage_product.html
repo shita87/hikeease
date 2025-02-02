@@ -1,0 +1,394 @@
+{% extends "layouts/base-booking.html" %}
+
+{% block title %} Manage Booking {% endblock %}
+
+{% block body_class %} sign-in-basic {% endblock %}
+
+{% block stylesheets %}
+<style>
+    table, th, td {
+        border: 1px solid #ddd;
+    }
+    th, td {
+        padding: 12px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+    }
+    td {
+        background-color: #f9f9f9;
+    }
+    tr:nth-child(even) td {
+        background-color: #f2f2f2;
+    }
+    tr:hover td {
+        background-color: #f1f1f1;
+    }
+    .label {
+        font-weight: bold;
+    }
+    .add-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.4);
+    }
+    .modal-content {
+        background-color: white;
+        margin: 10% auto;
+        height: 650px;
+        padding-left: 20px;
+        padding-right: 20px;
+        border-radius: 5px;
+        width: 46%;
+    }
+    .close {
+        float: right;
+        font-size: 28px;
+        cursor: pointer;
+    }
+</style>
+{% endblock stylesheets %}
+
+{% block content %}
+  {% include 'includes/navigation.html' %}
+  <div class="page-header align-items-start min-vh-100" style="background-image: url('/static/assets/img/bg9.jpg');" loading="lazy">
+    <span class="mask bg-gradient-dark opacity-2"></span>
+    <div class="container my-auto">
+        <div class="row" style="width: 202%; ">
+            <div class="col-6" style="padding-bottom: 25%;">
+                </br> 
+                </br> 
+                <div class="search-container" style="padding-left: 50%;">
+                    <input type="text" class="form-control" placeholder="Search..." id="searchInput" style="border: 2px solid #ced4da; border-radius: 25px; padding: 5px 15px; padding-top: 10px; outline: none; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+                </div>
+                </br>
+                <button class="add-button btn btn-success" onclick="openModal()">+ Add Product</button>
+                <div style="max-height: 500px; overflow-y: auto;">
+                    <table class="table table-hover" style="width: 100%;">
+                        <thead style="font-size: medium; font-weight: bold; text-align: center;">
+                            <tr>
+                                <th style="background-color: white; text-align: center; border: 1px solid #ddd;">Product ID</th>
+                                <th style="background-color: white; text-align: center; border: 1px solid #ddd;">Mountain Name</th>
+                                <th style="background-color: white; text-align: center; border: 1px solid #ddd;">Location</th>
+                                <th style="background-color: white; text-align: center; border: 1px solid #ddd;">Contact</th>
+                                <th style="background-color: white; text-align: center; border: 1px solid #ddd;">Difficulty</th>
+                                <th style="background-color: white; text-align: center; border: 1px solid #ddd;">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-body" style="font-size: medium; vertical-align: middle; background-color: rgb(255, 255, 255);">
+                        
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  
+  <!-- Modal Popup -->
+  <div id="addModal" class="modal">
+      <div class="modal-content">
+          <span class="close" onclick="closeModal()">&times;</span>
+          <h3>Add New Mountain Package</h3>
+          </br>
+          <div class="col-lg-12 mx-auto">
+            <form id="addProductForm" class="row g-3" style="height: 500px; overflow-y: auto;" onsubmit="addProduct(event)" enctype="multipart/form-data">
+                <div class="col-lg-3">
+                    <label>Mountain Name</label>
+                    <input type="text" class="form-control" name="mountain_name">
+                </div>
+                <div class="col-lg-3">
+                    <label>Mountain Elevation</label>
+                    <input type="text" name="height" class="form-control">
+                </div>
+                <div class="col-lg-3">
+                    <label>Coordinate</label>
+                    <input type="text" name="coordinate" class="form-control">
+                </div>
+                <div class="col-lg-3">
+                    <label>Location</label>
+                    <input type="text" name="location" class="form-control">
+                </div>
+                <div class="col-lg-4">
+                    <label>Difficulty</label>
+                    <input type="text" name="difficulty" class="form-control">
+                </div>
+                <div class="col-lg-4">
+                    <label>Contact</label>
+                    <input type="text" name="contact" class="form-control">
+                </div>
+                <div class="col-lg-4">
+                    <label>Cost</label>
+                    <input type="text" name="price" class="form-control">
+                </div>
+                <div class="col-lg-6">
+                    <label>Booked Dates</label>
+                    <input type="text" name="fullbook" class="form-control">
+                </div>
+                <div class="col-lg-6">
+                    <label>Available Dates</label>
+                    <input type="text" name="available" class="form-control">
+                </div>
+                <div class="col-lg-6">
+                    <label>Mountain Details</label>
+                </div>
+                <div class="col-lg-12">
+                    <textarea name="description" id="" cols="100" rows="10"></textarea>
+                </div>
+                <div class="col-lg-6">
+                    <label>Facility</label>
+                </div>
+                <div class="col-lg-12">
+                    <textarea name="facility" id="" cols="100" rows="10"></textarea>
+                </div>
+                <div class="col-lg-12">
+                    <label>Mountain Picture</label>
+                    <input type="file" class="form-control" name="mountain_pic" accept=".jpeg, .jpg, .pdf">
+                </div>
+                <br>
+                <div class="col-lg-6">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+                
+              </form>
+          </div>
+      </div>
+  </div>
+
+  <div id="viewModal" class="modal">
+    <div class="modal-content" style="height: 700px; overflow-y: auto;">
+        <span class="close" onclick="CloseViewModal()">&times;</span>
+        <h3> <span id="view-mountain-name"></span> Package</h3>
+        </br>
+        
+        <div class="col-lg-12">
+            <table>
+                <tr>
+                    <td class="label">Mountain Elevation</td>
+                    <td><span id="view-height"></span></td>
+                </tr>
+                <tr>
+                    <td class="label">Coordinate</td>
+                    <td><span id="view-coordinate"></span></td>
+                </tr>
+                <tr>
+                    <td class="label">Location</td>
+                    <td><span id="view-location"></span></td>
+                </tr>
+                <tr>
+                    <td class="label">Difficulty Level</td>
+                    <td><span id="view-difficulty"></span></td>
+                </tr>
+                <tr>
+                    <td class="label">Contact Person</td>
+                    <td><span id="view-contact"></span></td>
+                </tr>
+                <tr>
+                    <td class="label">Cost</td>
+                    <td><span id="view-price"></span></td>
+                </tr>
+                <tr>
+                    <td class="label">Booked Dates</td>
+                    <td><span id="view-fullbook"></span></td>
+                </tr>
+                <tr>
+                    <td class="label">Available Dates</td>
+                    <td><span id="view-available"></span></td>
+                </tr>
+                <tr>
+                    <td class="label">Packages Details</td>
+                    <td><span id="view-description"></span></td>
+                </tr>
+                <tr>
+                    <td class="label">Available Facilitiess</td>
+                    <td><span id="view-facility"></span></td>
+                </tr>
+                <tr>
+                    <td class="label">Moutain Picture</td>
+                    <td><div id="view-mountain-pic"></div></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+  </div>
+
+  <script>
+      async function addProduct(event) {
+        event.preventDefault();
+        const form = document.getElementById("addProductForm");
+        const formData = new FormData(form);
+        const mountainPic = formData.get('mountain_pic');
+        if (mountainPic) {
+            const base64File = await convertToBase64(mountainPic);
+            formData.set("mountain_pic", base64File)
+        }
+        const data = Object.fromEntries(formData.entries());
+        try {
+            const response = await fetch("/manage_product", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data),
+            });
+            const result = await response.json();
+            if (response.ok) {
+                alert(result.message || "Product added successfully!");
+                closeModal();
+                form.reset();
+            } else {
+                alert(result.error || "Something went wrong.");
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            alert("Error: " + error.message);
+        }
+      }
+
+      function convertToBase64(file) {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onloadend = () => resolve(reader.result);
+            reader.onerror = reject;
+            reader.readAsDataURL(file);  // This converts the file to Base64
+        });}
+
+      function openModal() {
+        document.getElementById("addModal").style.display = "block";}
+      function closeModal() {
+        document.getElementById("addModal").style.display = "none";}
+
+      function ViewModal(productId){
+        fetch(`/manage_product/${productId}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(product => {
+            if (product.error) {
+                alert ("Product Not Found");
+                return;
+            }
+            document.getElementById("view-mountain-name").innerText = product.mountain_name;
+            document.getElementById("view-height").innerText = product.height;
+            document.getElementById("view-coordinate").innerText = product.coordinate;
+            document.getElementById("view-location").innerText = product.location;
+            document.getElementById("view-difficulty").innerText = product.difficulty;
+            document.getElementById("view-contact").innerText = product.contact;
+            document.getElementById("view-price").innerText = product.price;
+            document.getElementById("view-fullbook").innerText = product.fullbook;
+            document.getElementById("view-available").innerText = product.available;
+            document.getElementById("view-description").innerText = product.description;
+            document.getElementById("view-facility").innerText = product.facility;
+            document.getElementById("view-mountain-pic").innerHTML = `<img src="${product.mountain_pic}" alt="Mountain Pocture" style="max-width: 50%; height: 70%;" />`;
+
+            document.getElementById('viewModal').style.display = "block";
+        })
+        .catch(error => {
+            console.error("Error fetching product details:", error);
+            alert("Failed to load Product details.");
+        });
+      }
+      function CloseViewModal(){
+        document.getElementById("viewModal").style.display = "none";}
+
+      function fetchProduct() {
+        fetch('/manage_product?format=json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                const tableBody = document.getElementById('table-body');
+                tableBody.innerHTML = '';
+
+                if (!Array.isArray(data) || data.length === 0) {
+                    tableBody.innerHTML = '<tr><td colspan="8">No Product found.</td></tr>';
+                    return;
+                }
+
+                data.forEach(product => {
+                    const row = document.createElement('tr');
+
+                    row.innerHTML = `
+                        <td style="text-align: center; border: 1px solid #ddd;">${product.id}</td>
+                        <td style="text-align: center; border: 1px solid #ddd;">${product.mountain_name}</td>
+                        <td style="text-align: center; border: 1px solid #ddd;">${product.location}</td>
+                        <td style="text-align: center; border: 1px solid #ddd;">${product.contact}</td>
+                        <td style="text-align: center; border: 1px solid #ddd;">${product.difficulty}</td>
+                        <td>
+                            <button class="btn btn-info btn-sm" onclick="ViewModal(${product.id})">View</button>
+                            <button class="btn btn-danger btn-sm" onclick="deleteProduct(${product.id})">Delete</button>
+                        </td>
+                    `;
+
+                    tableBody.appendChild(row);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching bookings:', error);
+                document.getElementById('table-body').innerHTML = '<tr><td colspan="8">Failed to load data.</td></tr>';
+            });
+        }
+
+      document.addEventListener("DOMContentLoaded", fetchProduct);
+
+      function deleteProduct(productId) {
+            if (!confirm("Are you sure you want to delete this product?")) {
+                return;
+            }
+
+            fetch(`/manage_product/${productId}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+            .then(response => {
+                if (response.ok) {
+                  window.location.href = '/manage_product'; 
+                  alert("Product Deleted Successfully");
+                } else {
+                  alert("Product Deletion Failed");
+                }
+            })
+            .catch(error => {
+                console.error("Error deleting Product:", error);
+                alert("Failed to delete the Product.");
+            });
+        }
+
+      document.getElementById('searchInput').addEventListener('input', function() {
+          const filter = this.value.toLowerCase();
+          const rows = document.querySelectorAll('#table-body tr');
+          rows.forEach(row => {
+              const columns = row.querySelectorAll('td');
+              const name = columns[1].innerText.toLowerCase();
+              if (name.includes(filter)) {
+                  row.style.display = '';
+              } else {
+                  row.style.display = 'none';
+              }
+          });
+      });
+      
+  </script>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE -->
+{% block javascripts %}{% endblock javascripts %}

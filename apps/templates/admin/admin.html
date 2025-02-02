@@ -5,138 +5,64 @@
 {% block body_class %} sign-in-basic {% endblock %}
 
 {% block stylesheets %}
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+<style>
+    table, th, td {
+        border: 1px solid #ddd;
+    }
+    th, td {
+        padding: 12px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+    }
+    td {
+        background-color: #f9f9f9;
+    }
+    tr:nth-child(even) td {
+        background-color: #f2f2f2;
+    }
+    tr:hover td {
+        background-color: #f1f1f1;
+    }
+    .label {
+        font-weight: bold;
+    }
+</style>
 {% endblock stylesheets %}
 
 {% block content %}
-{% include 'includes/navigation.html' %}
-  <style>
-      .sidebar {
-        width: 15%;
-        height: 300px;
-        padding-top: 1%;
-      }
-      .content {
-        width: 110%;
-        background-color: #ffffff;
-        color: white;
-        height: 750px;
-        padding-top: 5%;
-        border-radius: 15px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      }
-      .table thead th {
-        text-align: center;
-      }
-      .table tbody td {
-        text-align: center;
-        vertical-align: middle;
-      }
-      .search-container {
-        padding-left: 50%;
-      }
-      .search-container input {
-        border: 2px solid #ced4da;
-        border-radius: 25px;
-        padding: 5px 15px;
-        padding-top: 10px;
-        outline: none;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      }
-      table {
-          width: 100%;
-          border-collapse: collapse;
-          margin: 20px 0;
-      }
-      table, th, td {
-          border: 1px solid #ddd;
-      }
-      th, td {
-          padding: 12px;
-          text-align: left;
-      }
-      th {
-          background-color: #f2f2f2;
-          font-weight: bold;
-      }
-      td {
-          background-color: #f9f9f9;
-      }
-      tr:nth-child(even) td {
-          background-color: #f2f2f2;
-      }
-      tr:hover td {
-          background-color: #f1f1f1;
-      }
-      .label {
-          font-weight: bold;
-      }
-  </style>
+  {% include 'includes/navigation.html' %}
   <div class="page-header align-items-start min-vh-100" style="background-image: url('/static/assets/img/bg9.jpg');" loading="lazy">
     <span class="mask bg-gradient-dark opacity-2"></span>
     <div class="container my-auto">
-      <div class="row">
-        <div class="col-md-auto">
-          <button class="btn btn-primary" onclick="showSection('orderInfo')">Order Information</button>
-        </div>
-        <div class="col col-lg-6">
-          <button class="btn btn-primary" onclick="showSection('getAvailableBook')">Add Destination</button>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6 content">
-          <div id="orderInfo" class="section" style="display: block;">
-            <div class="search-container">
-              <input type="text" class="form-control" placeholder="Search..." id="searchInput">
+    </br>
+      <div class="row" style="width: 202%; ">
+        <div class="col-6" style="padding-bottom: 25%;">
+            <div class="search-container" style="padding-left: 50%;">
+            </br>
+              <input type="text" class="form-control" placeholder="Search..." id="searchInput" style="border: 2px solid #ced4da; border-radius: 25px; padding: 5px 15px; padding-top: 10px; outline: none; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
             </div>
-            <br />
-            <br />
+            </br>
             <div style="max-height: 500px; overflow-y: auto;">
-              <table class="table table-hover">
-                <thead style="font-size: medium; font-weight: bold;">
+              <table class="table table-hover" style="width: 100%;">
+                <thead style="font-size: medium; font-weight: bold; text-align: center;">
                   <tr>
-                    <th style="background-color: rgb(129, 133, 133);">Booking ID</th>
-                    <th style="background-color: rgb(129, 133, 133);">Group Name</th>
-                    <th style="background-color: rgb(129, 133, 133);">Name</th>
-                    <th style="background-color: rgb(129, 133, 133);">Email</th>
-                    <th style="background-color: rgb(129, 133, 133);">Phone Number</th>
-                    <th style="background-color: rgb(129, 133, 133);">Mount Package</th>
-                    <th style="background-color: rgb(129, 133, 133);">Climb Date</th>
-                    <th style="background-color: rgb(129, 133, 133);">Action</th>
+                    <th style="background-color: white; text-align: center; border: 1px solid #ddd;">Booking ID</th>
+                    <th style="background-color: white; text-align: center; border: 1px solid #ddd;">Group Name</th>
+                    <th style="background-color: white; text-align: center; border: 1px solid #ddd;">Name</th>
+                    <th style="background-color: white; text-align: center; border: 1px solid #ddd;">Email</th>
+                    <th style="background-color: white; text-align: center; border: 1px solid #ddd;">Phone Number</th>
+                    <th style="background-color: white; text-align: center; border: 1px solid #ddd;">Mount Package</th>
+                    <th style="background-color: white; text-align: center; border: 1px solid #ddd;">Climb Date</th>
+                    <th style="background-color: white; text-align: center; border: 1px solid #ddd;">Action</th>
                   </tr>
                 </thead>
-                <tbody id="table-body" style="font-size: medium;">
+                <tbody id="table-body" style="font-size: medium; vertical-align: middle; background-color: rgb(255, 255, 255);">
 
                 </tbody>
               </table>
-            </div>
-          </div>
-          <div id="getAvailableBook" class="section" style="display: none;">
-            <div class="col-lg-8 col-md-8 col-12 mx-auto">
-              <form id="AvialableSearchForm" class="row g-3" onsubmit="getAvailable(event)" enctype="multipart/form-data">
-                <div class="col-lg-4">
-                  <label class="form-label" style="font-size: 15px; font-weight: bold; color: black;">Mountain Name</label>
-                  <select class="form-control" name="mountain_name" required>
-                      <option value="">Select a Mountain</option>
-                      <option value="Mount Arjuno">Mount Arjuno</option>
-                      <option value="Mount Ceremai">Mount Ceremai</option>
-                      <option value="Mount Gede">Mount Gede</option>
-                      <option value="Mount Kawah Ratu">Mount Kawah Ratu</option>
-                      <option value="Mount Merbabu">Mount Merbabu</option>
-                      <option value="Mount Rinjani">Mount Rinjani</option>
-                      <option value="Mount Salak">Mount Salak</option>
-                      <option value="Mount Slamet">Mount Slamet</option>
-                  </select>
-                </div>
-                <div class="col-lg-4">
-                  <label class="form-label" style="font-size: 15px; font-weight: bold; color: black;">Date From</label>
-                  <input type="date" class="form-control" name="climb_date">
-                </div>
-                <div class="col-lg-4">
-                  <label class="form-label" style="font-size: 15px; font-weight: bold; color: black;">Date To</label>
-                  <input type="date" class="form-control" name="climb_date">
-                </div>
-              </form>
             </div>
           </div>
       </div>
@@ -148,86 +74,87 @@
       <div class="modal-header">
         <h2 class="modal-title" id="detailsModalLabel">Booking Details</h2>
       </div>
-      <p>
-        
-      </p>
-      <div class="modal-body">
-        <div class="container-fluid">
-          <div class="row" style="max-height: 600px; overflow-y: auto;">
-            <table>
-                <tr>
-                    <td class="label">Booking ID:</td>
-                    <td><span id="detail-id"></span></td>
-                </tr>
-                <tr>
-                    <td class="label">Group Name:</td>
-                    <td><span id="detail-group-name"></span></td>
-                </tr>
-                <tr>
-                    <td class="label">Name:</td>
-                    <td><span id="detail-member-name"></span></td>
-                </tr>
-                <tr>
-                    <td class="label">Email:</td>
-                    <td><span id="detail-member-email"></span></td>
-                </tr>
-                <tr>
-                    <td class="label">Nationality:</td>
-                    <td><span id="detail-nationality"></span></td>
-                </tr>
-                <tr>
-                    <td class="label">Age:</td>
-                    <td><span id="detail-age"></span></td>
-                </tr>
-                <tr>
-                    <td class="label">Phone:</td>
-                    <td><span id="detail-phone"></span></td>
-                </tr>
-                <tr>
-                    <td class="label">Emergency Phone:</td>
-                    <td><span id="detail-emergency-phone"></span></td>
-                </tr>
-                <tr>
-                    <td class="label">Identity Type:</td>
-                    <td><span id="detail-identity-type"></span></td>
-                </tr>
-                <tr>
-                    <td class="label">Identity File:</td>
-                    <td><div id="detail-identity-file"></div></td>
-                </tr>
-                <tr>
-                    <td class="label">Identity Number:</td>
-                    <td><span id="detail-identity-number"></span></td>
-                </tr>
-                <tr>
-                    <td class="label">Mountain:</td>
-                    <td><span id="detail-mountain-name"></span></td>
-                </tr>
-                <tr>
-                    <td class="label">Climb Date:</td>
-                    <td><span id="detail-climb-date"></span></td>
-                </tr>
-                <tr>
-                    <td class="label">Province:</td>
-                    <td><span id="detail-province"></span></td>
-                </tr>
-                <tr>
-                    <td class="label">City:</td>
-                    <td><span id="detail-city"></span></td>
-                </tr>
-                <tr>
-                    <td class="label">Address:</td>
-                    <td><span id="detail-addr"></span></td>
-                </tr>
-            </table>
-          </div>
-      </div>
-      <p>
+        <p>
 
-      </p>
-      <div class="modal-footer">
-        <button onclick="document.getElementById('detailsModal').style.display='none'">Close</button>
-      </div>
+        </p>
+        <div class="modal-body">
+            <div class="container-fluid">
+                <div class="row" style="max-height: 500px; overflow-y: auto; background-color: #f1f1f1;">
+                    <table>
+                      <tr>
+                          <td class="label">Booking ID:</td>
+                          <td><span id="detail-id"></span></td>
+                      </tr>
+                      <tr>
+                          <td class="label">Group Name:</td>
+                          <td><span id="detail-group-name"></span></td>
+                      </tr>
+                      <tr>
+                          <td class="label">Name:</td>
+                          <td><span id="detail-member-name"></span></td>
+                      </tr>
+                      <tr>
+                          <td class="label">Email:</td>
+                          <td><span id="detail-member-email"></span></td>
+                      </tr>
+                      <tr>
+                          <td class="label">Nationality:</td>
+                          <td><span id="detail-nationality"></span></td>
+                      </tr>
+                      <tr>
+                          <td class="label">Age:</td>
+                          <td><span id="detail-age"></span></td>
+                      </tr>
+                      <tr>
+                          <td class="label">Phone:</td>
+                          <td><span id="detail-phone"></span></td>
+                      </tr>
+                      <tr>
+                          <td class="label">Emergency Phone:</td>
+                          <td><span id="detail-emergency-phone"></span></td>
+                      </tr>
+                      <tr>
+                          <td class="label">Identity Type:</td>
+                          <td><span id="detail-identity-type"></span></td>
+                      </tr>
+                      <tr>
+                          <td class="label">Identity File:</td>
+                          <td><div id="detail-identity-file"></div></td>
+                      </tr>
+                      <tr>
+                          <td class="label">Identity Number:</td>
+                          <td><span id="detail-identity-number"></span></td>
+                      </tr>
+                      <tr>
+                          <td class="label">Mountain:</td>
+                          <td><span id="detail-mountain-name"></span></td>
+                      </tr>
+                      <tr>
+                          <td class="label">Climb Date:</td>
+                          <td><span id="detail-climb-date"></span></td>
+                      </tr>
+                      <tr>
+                          <td class="label">Province:</td>
+                          <td><span id="detail-province"></span></td>
+                      </tr>
+                      <tr>
+                          <td class="label">City:</td>
+                          <td><span id="detail-city"></span></td>
+                      </tr>
+                      <tr>
+                          <td class="label">Address:</td>
+                          <td><span id="detail-addr"></span></td>
+                      </tr>
+                    </table>
+                </div>
+                <p>
+
+                </p>
+                <div class="modal-footer">
+                    <button class="btn btn-danger btn-sm" onclick="document.getElementById('detailsModal').style.display='none'">Close</button>
+                </div>
+            </div>
+        </div>
     </div>
   </div>
   
@@ -253,13 +180,13 @@
                     const row = document.createElement('tr');
 
                     row.innerHTML = `
-                        <td>${booking.id}</td>
-                        <td>${booking.group_name}</td>
-                        <td>${booking.member_name}</td>
-                        <td>${booking.member_email}</td>
-                        <td>${booking.phone}</td>
-                        <td>${booking.mountain_name}</td>
-                        <td>${booking.climb_date}</td>
+                        <td style="text-align: center; border: 1px solid #ddd;">${booking.id}</td>
+                        <td style="text-align: center; border: 1px solid #ddd;">${booking.group_name}</td>
+                        <td style="text-align: center; border: 1px solid #ddd;">${booking.member_name}</td>
+                        <td style="text-align: center; border: 1px solid #ddd;">${booking.member_email}</td>
+                        <td style="text-align: center; border: 1px solid #ddd;">${booking.phone}</td>
+                        <td style="text-align: center; border: 1px solid #ddd;">${booking.mountain_name}</td>
+                        <td style="text-align: center; border: 1px solid #ddd;">${booking.climb_date}</td>
                         <td>
                             <button class="btn btn-info btn-sm" onclick="showDetails(${booking.id})">Detail</button>
                             <button class="btn btn-danger btn-sm" onclick="deleteBooking(${booking.id})">Delete</button>
@@ -352,20 +279,10 @@
               }
           });
       });
-
-      function showSection(sectionId) {
-          const sections = document.querySelectorAll('.section');
-          sections.forEach(section => {
-              section.style.display = 'none';
-          });
-          document.getElementById(sectionId).style.display = 'block';
-      }
       document.addEventListener("DOMContentLoaded", fetchBookings);
   </script>
 
 {% endblock content %}
 
 <!-- Specific Page JS goes HERE -->
-{% block javascripts %}
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-{% endblock javascripts %}
+{% block javascripts %}{% endblock javascripts %}

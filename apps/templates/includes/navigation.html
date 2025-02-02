@@ -32,12 +32,16 @@
                   <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                     <li>
                       <a class="dropdown-item d-flex align-items-center" href="{{ url_for('admin_blueprint.index') }}" style="font-size: 18px;">
-                        <i class="material-icons opacity-6 me-2" style="font-size: 25px;">admin_panel_settings</i>Admin Page
+                        <i class="material-icons opacity-6 me-2" style="font-size: 25px;"></i>Order Information
                       </a>
                     </li>
-                    <!-- Divider -->
                     <li><hr class="dropdown-divider"></li>
-                    <!-- Logout -->
+                    <li>
+                      <a class="dropdown-item d-flex align-items-center" href="/manage_product" style="font-size: 18px;">
+                        <i class="material-icons opacity-6 me-2" style="font-size: 25px;"></i>Packages Management
+                      </a>
+                    </li>
+                    <li><hr class="dropdown-divider"></li>
                     <li>
                       <a 
                         class="dropdown-item d-flex align-items-center" 

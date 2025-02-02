@@ -128,7 +128,7 @@ def create_booking():
             f"📞 Phone: {phone}\n"
             f"⛰️ Package: {mountain_name} Package\n"
             f"📅 Scheduled Date: {climb_date}\n")
-        send_telegram_message(message)
+        # send_telegram_message(message)
 
         return jsonify({"message": f"Booking created successfully !!! \n \n booking id : {new_booking.id}"}), 201
 
